@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell Your Bike | ReRide Bengaluru</title>
+
+    <link rel="stylesheet" href="./input.css" />
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="antialiased selection:bg-brand-primary selection:text-white">
+
+    <!-- 1. Navigation Bar -->
+    <nav
+      id="navbar"
+      class="fixed w-full top-0 z-50 transition-all bg-brand-bg duration-300 py-4"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-12">
+          <!-- Logo & Location -->
+          <div class="flex items-center gap-6">
+            <a
+              href="#"
+              class="text-2xl font-bold tracking-tight text-brand-primary flex items-center gap-2"
+            >
+              <img
+                src="./images/Logo/Reride_Logo.png"
+                alt="Reride Logo"
+                class="h-8 w-auto"
+              />
+            </a>
+
+            <!-- <div class="hidden md:flex items-center gap-1 text-sm font-medium bg-white/50 px-3 py-1.5 rounded-full border border-brand-primary/10">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-brand-primary"></i>
+                        <span>Bengaluru</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 text-brand-gray ml-1"></i>
+                    </div> -->
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="./index.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Home</a
+            >
+            <a
+              href="./buy.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Buy</a
+            >
+            <a
+              href="./sell.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Sell</a
+            >
+            <a
+              href="./about.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >About us</a
+            >
+            <a
+              href="./contact.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="text-brand-primary focus:outline-none"
+            >
+              <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-full left-0 w-full bg-brand-bg border-b border-brand-primary/10 shadow-lg p-4 flex-col gap-4"
+      >
+        <a
+          href="./buy.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >Buy</a
+        >
+        <a
+          href="./sell.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >Sell</a
+        >
+        <a
+          href="./aboutUs.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >About us</a
+        >
+        <a
+          href="./contact.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div
+      class="pt-20 pb-10 px-4 max-w-4xl mx-auto min-h-screen flex flex-col justify-center"
+    >
+      <!-- STEP 0: Landing / Explanation -->
+      <div
+        id="step0"
+        class="step-content active text-center animate-fade-in-up"
+      >
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-brand-primary font-bold text-sm mb-4 border border-blue-200"
+        >
+          <i data-lucide="tag" class="w-4 h-4"></i>
+          Best Price Guarantee
+        </div>
+        <h1
+          class="text-4xl md:text-6xl font-black text-brand-primary tracking-tight mb-6"
+        >
+          Sell your bike in
+          <span
+            class="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-orange-600"
+            >minutes</span
+          >.
+        </h1>
+        <p
+          class="text-lg text-brand-gray mb-12 max-w-2xl mx-auto leading-relaxed"
+        >
+          Skip the hassle of dealing with multiple buyers. Get a fair quote
+          instantly, schedule a free doorstep inspection, and get paid on the
+          spot.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-12 text-left">
+          <div
+            class="bg-white p-6 rounded-3xl shadow-sm border border-brand-primary/5"
+          >
+            <div
+              class="w-12 h-12 bg-blue-50 text-brand-primary rounded-xl flex items-center justify-center mb-4"
+            >
+              <i data-lucide="clipboard-list" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-bold text-brand-primary mb-2">1. Enter Details</h3>
+            <p class="text-sm text-brand-gray">
+              Share a few details about your bike's make, model, and condition.
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-3xl shadow-sm border border-brand-primary/5"
+          >
+            <div
+              class="w-12 h-12 bg-orange-50 text-brand-accent rounded-xl flex items-center justify-center mb-4"
+            >
+              <i data-lucide="search" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-bold text-brand-primary mb-2">2. Get Inspected</h3>
+            <p class="text-sm text-brand-gray">
+              Our expert will visit your location to verify the bike's
+              condition.
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-3xl shadow-sm border border-brand-primary/5"
+          >
+            <div
+              class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-4"
+            >
+              <i data-lucide="indian-rupee" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-bold text-brand-primary mb-2">3. Get Paid</h3>
+            <p class="text-sm text-brand-gray">
+              If everything checks out, we transfer the money instantly.
+            </p>
+          </div>
+        </div>
+
+        <button
+          onclick="startFlow()"
+          class="bg-brand-primary text-white text-xl font-bold px-10 py-5 rounded-full hover:bg-brand-primaryHover hover:scale-105 transition-all shadow-xl shadow-brand-primary/20 flex items-center justify-center gap-3 mx-auto"
+        >
+          Start Selling <i data-lucide="arrow-right" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- FORM WRAPPER (Hidden initially) -->
+      <div
+        id="formWrapper"
+        class="hidden bg-white rounded-[2.5rem] shadow-xl border border-brand-primary/10 overflow-hidden relative"
+      >
+        <!-- Progress Header -->
+        <div
+          class="bg-brand-bg/50 border-b border-brand-primary/10 px-6 py-4 flex items-center gap-4 sticky top-0 z-10"
+        >
+          <button
+            onclick="previousStep()"
+            id="backBtn"
+            class="p-2 rounded-full hover:bg-white text-brand-primary transition-colors hidden"
+          >
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <div class="flex-1">
+            <div
+              class="flex justify-between text-xs font-bold text-brand-gray mb-2 uppercase tracking-wide"
+            >
+              <span id="stepTitleText">Brand</span>
+              <span id="stepCounterText">1/10</span>
+            </div>
+            <!-- Progress Bar -->
+            <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+              <div
+                id="progressBar"
+                class="bg-brand-primary h-full rounded-full transition-all duration-500 ease-out"
+                style="width: 10%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Content Area -->
+        <div class="p-6 md:p-10 min-h-100">
+          <!-- Step 1: Brand -->
+          <div id="step1" class="step-content">
+            <h2 class="text-2xl font-bold text-brand-primary mb-6">
+              Select the <span class="text-brand-accent">Brand</span>
+            </h2>
+            <div
+              class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+              id="brandGrid"
+            >
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Step 2: Vehicle Type -->
+          <div id="step2" class="step-content">
+            <h2 class="text-2xl font-bold text-brand-primary mb-6">
+              Select <span class="text-brand-accent">Vehicle Type</span>
+            </h2>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
+              id="vehicleTypeGrid"
+            >
+              <div
+                class="option-card cursor-pointer bg-white border-2 border-brand-primary/10 rounded-2xl p-8 text-center hover:border-brand-primary/30 flex flex-col justify-center items-center"
+                onclick="selectOption('vehicleType', 'Bike', 2, this)"
+              >
+                <img
+                  src="./images/icons/motorcycle_2173637.png"
+                  alt="bike"
+                  class="w-16 h-16"
+                />
+                <h3 class="text-xl font-bold text-brand-primary">Motorcycle</h3>
+              </div>
+              <div
+                class="option-card cursor-pointer flex flex-col bg-white border-2 border-brand-primary/10 rounded-2xl p-8 text-center hover:border-brand-primary/30 justify-center items-center"
+                onclick="selectOption('vehicleType', 'Scooter', 2, this)"
+              >
+                <img
+                  src="./images/icons/scooter_5811821.png"
+                  alt="scooter"
+                  class="w-16 h-16"
+                />
+                <h3 class="text-xl font-bold text-brand-primary">Scooter</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Model -->
+          <div id="step3" class="step-content">
+            <h2 class="text-2xl font-bold text-brand-primary mb-6">
+              Select the <span class="text-brand-accent">Model</span>
+            </h2>
+            <div class="relative mb-6">
+              <i
+                data-lucide="search"
+                class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-gray"
+              ></i>
+              <input
+                type="text"
+                id="modelSearch"
+                oninput="filterModels()"
+                placeholder="Search your model..."
+                class="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary text-lg bg-brand-bg/30"
+              />
+            </div>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-75 overflow-y-auto hide-scrollbar pr-2"
+              id="modelList"
+            >
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Step 4: Year -->
+          <div id="step4" class="step-content">
+            <h2 class="text-2xl font-bold text-brand-primary mb-6">
+              Registration <span class="text-brand-accent">Year</span>
+            </h2>
+            <div class="grid grid-cols-3 sm:grid-cols-4 gap-4" id="yearGrid">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Step 5: Color -->
+          <div id="step5" class="step-content">
+            <h2 class="text-2xl font-bold text-brand-primary mb-6">
+              Vehicle <span class="text-brand-accent">Color</span>
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="colorGrid">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Step 6: Purchase Details -->
+          <div id="step6" class="step-content">
+            <h2 class="text-2xl font-bold text-brand-primary mb-6">
+              Purchase <span class="text-brand-accent">Details</span>
+            </h2>
+            <div class="space-y-6 max-w-xl">
+              <div>
+                <label
+                  class="block text-sm font-semibold text-brand-primary mb-2"
+                  >Purchase Date</label
+                >
+                <input
+                  type="date"
+                  id="purchaseYear"
+                  class="w-full px-4 py-4 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary bg-brand-bg/30 cursor-pointer"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-sm font-semibold text-brand-primary mb-2"
+                  >Purchase Amount</label
+                >
+                <div class="relative">
+                  <span
+                    class="absolute left-4 top-1/2 -translate-y-1/2 text-brand-gray font-bold"
+                    >₹</span
+                  >
+                  <input
+                    type="number"
+                    id="purchaseAmount"
+                    placeholder="e.g. 150000"
+                    class="w-full pl-10 pr-4 py-4 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary bg-brand-bg/30"
+                  />
+                </div>
+              </div>
+              <button
+                id="purchase-btn"
+                onclick="nextStep(6)"
+                class="w-full bg-brand-primary text-white font-bold py-4 rounded-xl hover:bg-brand-primaryHover transition-colors mt-4 hidden"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 7: Owner Type -->
+          <div id="step7" class="step-content">
+            <h2 class="text-2xl font-bold text-brand-primary mb-6">
+              Number of <span class="text-brand-accent">Owners</span>
+            </h2>
+            <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+              <div
+                class="option-card cursor-pointer bg-white border-2 border-brand-primary/10 rounded-xl p-6 text-center hover:border-brand-primary/30"
+                onclick="selectOption('owner', '1st Owner', 7, this)"
+              >
+                <h3 class="text-2xl font-black text-brand-primary mb-1">1st</h3>
+                <p class="text-sm text-brand-gray">Owner</p>
+              </div>
+              <div
+                class="option-card cursor-pointer bg-white border-2 border-brand-primary/10 rounded-xl p-6 text-center hover:border-brand-primary/30"
+                onclick="selectOption('owner', '2nd Owner', 7, this)"
+              >
+                <h3 class="text-2xl font-black text-brand-primary mb-1">2nd</h3>
+                <p class="text-sm text-brand-gray">Owner</p>
+              </div>
+              <div
+                class="option-card cursor-pointer bg-white border-2 border-brand-primary/10 rounded-xl p-6 text-center hover:border-brand-primary/30"
+                onclick="selectOption('owner', '3rd Owner', 7, this)"
+              >
+                <h3 class="text-2xl font-black text-brand-primary mb-1">3rd</h3>
+                <p class="text-sm text-brand-gray">Owner</p>
+              </div>
+              <div
+                class="option-card cursor-pointer bg-white border-2 border-brand-primary/10 rounded-xl p-6 text-center hover:border-brand-primary/30"
+                onclick="selectOption('owner', '4+ Owner', 7, this)"
+              >
+                <h3 class="text-2xl font-black text-brand-primary mb-1">4+</h3>
+                <p class="text-sm text-brand-gray">Owner</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 8: Photos & Reg -->
+          <div id="step8" class="step-content">
+            <h2 class="text-2xl font-bold text-brand-primary mb-6">
+              Registration & <span class="text-brand-accent">Photos</span>
+            </h2>
+            <div class="space-y-8">
+              <div>
+                <label
+                  class="block text-sm font-semibold text-brand-primary mb-2"
+                  >Registration Number</label
+                >
+                <input
+                  type="text"
+                  id="registrationNumber"
+                  placeholder="e.g. KA 01 AB 1234"
+                  class="w-full px-4 py-4 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary font-bold uppercase tracking-wide bg-brand-bg/30"
+                />
+              </div>
+
+              <div>
+                <label
+                  class="block text-sm font-semibold text-brand-primary mb-4"
+                  >Upload Bike Photos</label
+                >
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <!-- Front View -->
+                  <div
+                    class="border-2 border-dashed border-brand-primary/30 rounded-xl p-4 text-center relative hover:bg-brand-bg/50 transition-colors cursor-pointer group h-32 flex flex-col items-center justify-center overflow-hidden bg-brand-bg/30"
+                    onclick="document.getElementById('photo-front').click()"
+                  >
+                    <input
+                      type="file"
+                      id="photo-front"
+                      accept="image/*"
+                      class="hidden"
+                      onchange="handlePhotoUpload(event, 'front')"
+                    />
+                    <div id="preview-front" class="absolute inset-0 hidden">
+                      <img src="" class="w-full h-full object-cover" />
+                      <div
+                        class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <i
+                          data-lucide="refresh-cw"
+                          class="w-6 h-6 text-white"
+                        ></i>
+                      </div>
+                    </div>
+                    <div id="placeholder-front">
+                      <i
+                        data-lucide="camera"
+                        class="w-6 h-6 mx-auto text-brand-primary/50 mb-2"
+                      ></i>
+                      <p class="text-xs font-semibold text-brand-primary">
+                        Front View
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Back View -->
+                  <div
+                    class="border-2 border-dashed border-brand-primary/30 rounded-xl p-4 text-center relative hover:bg-brand-bg/50 transition-colors cursor-pointer group h-32 flex flex-col items-center justify-center overflow-hidden bg-brand-bg/30"
+                    onclick="document.getElementById('photo-back').click()"
+                  >
+                    <input
+                      type="file"
+                      id="photo-back"
+                      accept="image/*"
+                      class="hidden"
+                      onchange="handlePhotoUpload(event, 'back')"
+                    />
+                    <div id="preview-back" class="absolute inset-0 hidden">
+                      <img src="" class="w-full h-full object-cover" />
+                      <div
+                        class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <i
+                          data-lucide="refresh-cw"
+                          class="w-6 h-6 text-white"
+                        ></i>
+                      </div>
+                    </div>
+                    <div id="placeholder-back">
+                      <i
+                        data-lucide="camera"
+                        class="w-6 h-6 mx-auto text-brand-primary/50 mb-2"
+                      ></i>
+                      <p class="text-xs font-semibold text-brand-primary">
+                        Back View
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Left Side -->
+                  <div
+                    class="border-2 border-dashed border-brand-primary/30 rounded-xl p-4 text-center relative hover:bg-brand-bg/50 transition-colors cursor-pointer group h-32 flex flex-col items-center justify-center overflow-hidden bg-brand-bg/30"
+                    onclick="document.getElementById('photo-left').click()"
+                  >
+                    <input
+                      type="file"
+                      id="photo-left"
+                      accept="image/*"
+                      class="hidden"
+                      onchange="handlePhotoUpload(event, 'left')"
+                    />
+                    <div id="preview-left" class="absolute inset-0 hidden">
+                      <img src="" class="w-full h-full object-cover" />
+                      <div
+                        class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <i
+                          data-lucide="refresh-cw"
+                          class="w-6 h-6 text-white"
+                        ></i>
+                      </div>
+                    </div>
+                    <div id="placeholder-left">
+                      <i
+                        data-lucide="camera"
+                        class="w-6 h-6 mx-auto text-brand-primary/50 mb-2"
+                      ></i>
+                      <p class="text-xs font-semibold text-brand-primary">
+                        Left Side
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Right Side -->
+                  <div
+                    class="border-2 border-dashed border-brand-primary/30 rounded-xl p-4 text-center relative hover:bg-brand-bg/50 transition-colors cursor-pointer group h-32 flex flex-col items-center justify-center overflow-hidden bg-brand-bg/30"
+                    onclick="document.getElementById('photo-right').click()"
+                  >
+                    <input
+                      type="file"
+                      id="photo-right"
+                      accept="image/*"
+                      class="hidden"
+                      onchange="handlePhotoUpload(event, 'right')"
+                    />
+                    <div id="preview-right" class="absolute inset-0 hidden">
+                      <img src="" class="w-full h-full object-cover" />
+                      <div
+                        class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <i
+                          data-lucide="refresh-cw"
+                          class="w-6 h-6 text-white"
+                        ></i>
+                      </div>
+                    </div>
+                    <div id="placeholder-right">
+                      <i
+                        data-lucide="camera"
+                        class="w-6 h-6 mx-auto text-brand-primary/50 mb-2"
+                      ></i>
+                      <p class="text-xs font-semibold text-brand-primary">
+                        Right Side
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Odometer -->
+                  <div
+                    class="border-2 border-dashed border-brand-primary/30 rounded-xl p-4 text-center relative hover:bg-brand-bg/50 transition-colors cursor-pointer group h-32 flex flex-col items-center justify-center overflow-hidden bg-brand-bg/30"
+                    onclick="document.getElementById('photo-odometer').click()"
+                  >
+                    <input
+                      type="file"
+                      id="photo-odometer"
+                      accept="image/*"
+                      class="hidden"
+                      onchange="handlePhotoUpload(event, 'odometer')"
+                    />
+                    <div id="preview-odometer" class="absolute inset-0 hidden">
+                      <img src="" class="w-full h-full object-cover" />
+                      <div
+                        class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <i
+                          data-lucide="refresh-cw"
+                          class="w-6 h-6 text-white"
+                        ></i>
+                      </div>
+                    </div>
+                    <div id="placeholder-odometer">
+                      <i
+                        data-lucide="gauge"
+                        class="w-6 h-6 mx-auto text-brand-primary/50 mb-2"
+                      ></i>
+                      <p class="text-xs font-semibold text-brand-primary">
+                        Odometer (Kms)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                id="registration-btn"
+                onclick="nextStep(8)"
+                class="w-full bg-brand-primary text-white font-bold py-4 rounded-xl hover:bg-brand-primaryHover transition-colors hidden"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 9: Inspection -->
+          <div id="step9" class="step-content">
+            <h2 class="text-2xl font-bold text-brand-primary mb-6">
+              Schedule <span class="text-brand-accent">Inspection</span>
+            </h2>
+            <div class="space-y-6 max-w-xl">
+              <div>
+                <label
+                  class="block text-sm font-semibold text-brand-primary mb-2"
+                  >Preferred Date</label
+                >
+                <input
+                  type="date"
+                  id="inspectionDate"
+                  class="w-full px-4 py-4 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary bg-brand-bg/30 cursor-pointer"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-sm font-semibold text-brand-primary mb-2"
+                  >Select Hub</label
+                >
+                <div class="relative">
+                  <select
+                    id="inspectionLocation"
+                    class="w-full px-4 py-4 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary bg-brand-bg/30 appearance-none cursor-pointer"
+                  >
+                    <option value="">- Choose a location -</option>
+                    <!-- Populated by JS -->
+                  </select>
+                  <i
+                    data-lucide="chevron-down"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-gray pointer-events-none"
+                  ></i>
+                </div>
+              </div>
+              <button
+                id="inspection-btn"
+                onclick="nextStep(9)"
+                class="w-full bg-brand-primary text-white font-bold py-4 rounded-xl hover:bg-brand-primaryHover transition-colors mt-4 hidden"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 10: Contact -->
+          <div id="step10" class="step-content">
+            <h2 class="text-2xl font-bold text-brand-primary mb-2">
+              Final <span class="text-brand-accent">Step</span>
+            </h2>
+            <p class="text-brand-gray mb-8">
+              Please enter your Personal Details
+            </p>
+
+            <div class="space-y-5 max-w-xl">
+              <div>
+                <label
+                  class="block text-sm font-semibold text-brand-primary mb-2"
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  id="fullName"
+                  placeholder="Enter your full name"
+                  class="w-full px-4 py-4 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary bg-brand-bg/30"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-sm font-semibold text-brand-primary mb-2"
+                  >Mobile Number</label
+                >
+                <input
+                  type="tel"
+                  id="mobileNumber"
+                  placeholder="10-digit mobile number"
+                  class="w-full px-4 py-4 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary bg-brand-bg/30"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-sm font-semibold text-brand-primary mb-2"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="emailAddress"
+                  placeholder="your@email.com"
+                  class="w-full px-4 py-4 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary bg-brand-bg/30"
+                />
+              </div>
+
+              <button
+                id="contact-btn"
+                onclick="submitForm()"
+                class="w-full bg-brand-primary text-white font-bold text-lg py-4 rounded-xl hover:bg-brand-primaryHover transition-all shadow-lg hover:shadow-brand-primary/30 mt-6 hidden flex justify-center items-center gap-2"
+              >
+                <span id="submit-text">Submit Details</span>
+                <i
+                  data-lucide="check-circle"
+                  id="submit-icon"
+                  class="w-5 h-5"
+                ></i>
+                <i
+                  data-lucide="loader-2"
+                  id="submit-loader"
+                  class="w-5 h-5 animate-spin hidden"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      lucide.createIcons();
+    </script>
+    <script src="./js/buy.js"></script>
+  </body>
+</html>

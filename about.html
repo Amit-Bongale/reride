@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | ReRide Bengaluru</title>
+
+    <link rel="stylesheet" href="./input.css" />
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="antialiased selection:bg-brand-primary selection:text-white">
+    <!-- 1. Navigation Bar -->
+    <nav
+      id="navbar"
+      class="fixed w-full top-0 z-50 transition-all duration-300 py-4"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-12">
+          <!-- Logo & Location -->
+          <div class="flex items-center gap-6">
+            <a
+              href="./index.html"
+              class="text-2xl font-bold tracking-tight text-brand-primary flex items-center gap-2"
+            >
+              <img
+                src="./images/Logo/Reride_Logo.png"
+                alt="Reride Logo"
+                class="h-8 w-auto"
+              />
+            </a>
+
+            <!-- <div class="hidden md:flex items-center gap-1 text-sm font-medium bg-white/50 px-3 py-1.5 rounded-full border border-brand-primary/10">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-brand-primary"></i>
+                        <span>Bengaluru</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 text-brand-gray ml-1"></i>
+            </div> -->
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="./index.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Home</a
+            >
+            <a
+              href="./buy.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Buy</a
+            >
+            <a
+              href="./sell.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Sell</a
+            >
+            <a
+              href="./about.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >About us</a
+            >
+            <a
+              href="./contact.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="text-brand-primary focus:outline-none"
+            >
+              <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-full left-0 w-full bg-brand-bg border-b border-brand-primary/10 shadow-lg p-4 flex-col gap-4"
+      >
+        <a
+          href="./buy.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >Buy</a
+        >
+        <a
+          href="./sell.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >Sell</a
+        >
+        <a
+          href="./about.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >About us</a
+        >
+        <a
+          href="./contact.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <!-- 2. Modern Bento Grid Hero Section -->
+    <section class="relative pt-24 pb-12 px-4 max-w-7xl mx-auto">
+      <div
+        class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 auto-rows-[minmax(180px,auto)]"
+      >
+        <!-- Block 1: Main Headline (Navy) - Spans 8 cols -->
+        <div
+          class="md:col-span-12 lg:col-span-8 bg-brand-primary text-white rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden group animate-fade-in-up flex flex-col justify-center min-h-100"
+        >
+          <div class="relative z-10 space-y-6">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/10 text-brand-accent text-xs font-bold uppercase tracking-wider w-fit"
+            >
+              <i data-lucide="sparkles" class="w-3 h-3"></i> Since 2024
+            </div>
+            <h1
+              class="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight"
+            >
+              Not Just Used.<br />
+              <span
+                class="text-transparent bg-clip-text bg-linear-to-r from-blue-200 to-white"
+                >Re-Engineered.</span
+              >
+            </h1>
+            <p
+              class="text-blue-100 text-lg md:text-xl font-light max-w-lg leading-relaxed"
+            >
+              We don't just flip bikes. We strip them down, fix them up, and
+              give them a second life worth riding.
+            </p>
+            <div class="pt-4">
+              <a
+                href="buy.html"
+                class="inline-flex items-center gap-3 bg-white text-brand-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-400 hover:text-white transition-all shadow-xl hover:translate-x-1"
+              >
+                Check Inventory
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 2: Hero Image (Vertical) - Spans 4 cols -->
+        <div
+          class="md:col-span-6 lg:col-span-4 relative h-full min-h-75 lg:min-h-auto rounded-[2.5rem] overflow-hidden group animate-fade-in-up"
+          style="animation-delay: 0.1s"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Restored Royal Enfield"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8"
+          >
+            <p class="text-white font-bold text-lg">Factory Finish</p>
+            <p class="text-white/80 text-sm">Every scratch fixed.</p>
+          </div>
+        </div>
+
+        <!-- Block 3: Stat Card (Accent) - Spans 3 cols -->
+        <div
+          class="md:col-span-6 lg:col-span-3 bg-orange-400 text-brand-primary rounded-[2.5rem] p-8 flex flex-col justify-between group hover:scale-[1.02] transition-transform duration-300 animate-fade-in-up"
+          style="animation-delay: 0.2s"
+        >
+          <div
+            class="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center"
+          >
+            <i data-lucide="users" class="w-6 h-6 text-white"></i>
+          </div>
+          <div class="text-white">
+            <p class="text-5xl font-black mb-1">2.5k+</p>
+            <p class="font-bold uppercase tracking-wide opacity-80 text-sm">
+              Riders on road
+            </p>
+          </div>
+        </div>
+
+        <!-- Block 4: Secondary Image (Wide) - Spans 5 cols -->
+        <div
+          class="md:col-span-12 lg:col-span-5 relative h-64 lg:h-auto rounded-[2.5rem] overflow-hidden group animate-fade-in-up"
+          style="animation-delay: 0.3s"
+        >
+          <img
+            src="https://bikepromech.in/wp-content/uploads/2024/08/istockphoto-2085107255-170667a.webp"
+            alt="Mechanic Working"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+          />
+          <div
+            class="absolute top-6 right-6 bg-white/90 backdrop-blur px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide text-brand-primary shadow-lg"
+          >
+            120-Point Check
+          </div>
+        </div>
+
+        <!-- Block 5: Trust Text (White) - Spans 4 cols -->
+        <div
+          class="md:col-span-12 lg:col-span-4 bg-white border border-brand-primary/5 rounded-[2.5rem] p-8 flex flex-col justify-center hover:border-brand-primary/20 transition-colors animate-fade-in-up"
+          style="animation-delay: 0.4s"
+        >
+          <div class="flex items-center gap-2 mb-4 font-bold">
+            <i data-lucide="shield-check" class="w-5 h-5 text-orange-400"></i>
+            <span class="text-orange-400">Old Bikes. New Stories</span>
+          </div>
+          <p class="text-brand-gray text-sm leading-relaxed">
+            "We built ReRide because buying a used bike was a gamble. We turned
+            it into a guarantee."
+          </p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-gray-200 overflow-hidden">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <p class="text-xs font-bold text-brand-primary">Arjun D.</p>
+              <p class="text-[10px] text-brand-gray uppercase">Founder</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Infinite Marquee (Visual Break) -->
+    <div
+      class="bg-brand-primary py-4 overflow-hidden whitespace-nowrap border-y border-white/10"
+    >
+      <div class="inline-block animate-marquee">
+        <span
+          class="text-white/80 font-bold mx-8 text-lg uppercase tracking-widest"
+          >• 100% Quality Checked</span
+        >
+        <span
+          class="text-white/80 font-bold mx-8 text-lg uppercase tracking-widest"
+          >• Zero Hidden Costs</span
+        >
+        <span
+          class="text-white/80 font-bold mx-8 text-lg uppercase tracking-widest"
+          >• Instant Transfer</span
+        >
+        <span
+          class="text-white/80 font-bold mx-8 text-lg uppercase tracking-widest"
+          >• 1 Year Warranty</span
+        >
+        <span
+          class="text-white/80 font-bold mx-8 text-lg uppercase tracking-widest"
+          >• 100% Quality Checked</span
+        >
+        <span
+          class="text-white/80 font-bold mx-8 text-lg uppercase tracking-widest"
+          >• Zero Hidden Costs</span
+        >
+        <span
+          class="text-white/80 font-bold mx-8 text-lg uppercase tracking-widest"
+          >• Instant Transfer</span
+        >
+        <span
+          class="text-white/80 font-bold mx-8 text-lg uppercase tracking-widest"
+          >• 1 Year Warranty</span
+        >
+      </div>
+    </div>
+
+    <!-- 4. The Promise (Interactive Cards) -->
+    <section id="story" class="py-24 px-4 max-w-7xl mx-auto">
+      <div class="text-center mb-16 max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold text-brand-primary mb-6">
+          The Certified Promise
+        </h2>
+        <p class="text-lg text-brand-gray">
+          We don't just sell used bikes. We sell restored experiences. Here is
+          how we ensure your ride feels brand new.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div
+          class="group bg-white rounded-4xl p-8 shadow-sm hover:shadow-2xl hover:shadow-brand-primary/10 transition-all duration-500 hover:-translate-y-2 border border-brand-primary/5"
+        >
+          <div
+            class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors duration-500"
+          >
+            <i
+              data-lucide="sparkles"
+              class="w-8 h-8 text-brand-primary group-hover:text-white transition-colors duration-500"
+            ></i>
+          </div>
+          <h3 class="text-xl font-bold text-brand-primary mb-3">
+            Like-New Condition
+          </h3>
+          <p class="text-brand-gray leading-relaxed">
+            We take pre-loved two wheelers and give them a full makeover. From
+            engine tuning to detailing, it's restored to showroom glory.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="group bg-white rounded-4xl p-8 shadow-sm hover:shadow-2xl hover:shadow-brand-primary/10 transition-all duration-500 hover:-translate-y-2 border border-brand-primary/5 relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"
+          ></div>
+          <div
+            class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors duration-500 relative z-10"
+          >
+            <i
+              data-lucide="shield-check"
+              class="w-8 h-8 text-green-700 group-hover:text-white transition-colors duration-500"
+            ></i>
+          </div>
+          <h3 class="text-xl font-bold text-brand-primary mb-3 relative z-10">
+            Certified Safety
+          </h3>
+          <p class="text-brand-gray leading-relaxed relative z-10">
+            Every bike is Re-Ride Certified. Our 120-point inspection is
+            rigorous, ensuring it's safe, reliable, and absolutely road-ready.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="group bg-white rounded-4xl p-8 shadow-sm hover:shadow-2xl hover:shadow-brand-primary/10 transition-all duration-500 hover:-translate-y-2 border border-brand-primary/5"
+        >
+          <div
+            class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors duration-500"
+          >
+            <i
+              data-lucide="heart-handshake"
+              class="w-8 h-8 text-purple-700 group-hover:text-white transition-colors duration-500"
+            ></i>
+          </div>
+          <h3 class="text-xl font-bold text-brand-primary mb-3">
+            Peace of Mind
+          </h3>
+          <p class="text-brand-gray leading-relaxed">
+            Ride worry-free with our 1-year warranty and free service packages.
+            We've got your back long after you leave our hub.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Mission Statement (Dark Mode Contrast) -->
+    <section class="py-24 bg-brand-primary relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"
+      ></div>
+      <div
+        class="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-blue-900/50 to-transparent"
+      ></div>
+
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 text-white/80 text-sm font-medium mb-8 backdrop-blur-sm"
+        >
+          <i data-lucide="zap" class="w-4 h-4 text-brand-accent"></i>
+          <span>Our Philosophy</span>
+        </div>
+
+        <h2
+          class="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight leading-tight"
+        >
+          More Than Just a <br /><span
+            class="text-transparent bg-clip-text bg-linear-to-r from-blue-200 to-white"
+            >Bike Shop</span
+          >.
+        </h2>
+
+        <p class="text-xl text-blue-100 leading-relaxed font-light mb-12">
+          ReRide is a team of passionate riders who believe in second
+          chances—for machines and for people. We're on a mission to democratize
+          mobility in India, putting you on a ride you love at a price that
+          makes sense.
+        </p>
+
+        <a
+          href="buy.html"
+          class="inline-flex items-center gap-2 bg-white text-brand-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-400 hover:text-white transition-all duration-300 shadow-xl hover:shadow-brand-accent/20 hover:-translate-y-1"
+        >
+          Find Your Ride <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- 7. Modern FAQ Section -->
+    <section class="py-20 px-4 max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-brand-gray mt-2">
+          Everything you need to know about buying with ReRide.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ Item 1 -->
+        <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >"Why should I buy a used bike from Re-Ride?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+            With expert verified/evaluated bikes as good as new, Prakruthi Re-Ride assures users of secure, quick and easy buying options that have been backed up with a warranty and RC transfer. With multiple benefits such as finance options, expert support and extraordinary customer service, Prakruthi Re-Ride gives you the smartest way to own your next ride.
+          </div>
+        </details>
+
+        <!-- FAQ Item 2 -->
+        <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >Can I book a bike online?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+           Buying a used bike through Prakruthi Re-Ride starts online, but the final step happens in-store. This option allows the user to browse through refurbished bikes and select their choice according to their liking. By visiting the closest Prakruthi Re-Ride showroom, our team will be able to help you with all the further advancements like comparisons, finance options, and paperwork, all under one roof.
+          </div>
+        </details>
+
+        <!-- FAQ Item 3 -->
+        <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >Can I sell my bike online through your platform?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+            Yes. Selling your bike with the help of Prakruthi Re-Ride will be very easy. For this process to take place without any hassles, the user must upload your bike details and photos. The team will get an expert verified inspection and then give you a fair market price and take care of all the paperwork from there on.
+          </div>
+        </details>
+        <!-- FAQ Item 4 -->
+        <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >Can I exchange my bike or scooter in Re-Ride?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+            Absolutely. Re-Ride makes exchange of bike very simple. Bring in the old bike for inspection and evaluation and upgrade to any bike model of your preference. We offer fair exchange value, quick processing, and handle all the formalities, so your next ride is just a ride away.
+          </div>
+        </details>
+
+        <!-- FAQ Item 5 -->
+        <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >Are the used bikes listed on your platform inspected and certified?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+           Yes. Every pre-owned bike at Re-Ride is thoroughly inspected across quality checkpoints by trained professionals. We refurbish each and every single bike so that it meets the standards of a new bike, in terms of safety, performance and appearance.
+          </div>
+        </details>
+
+
+          <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >What documents are required to purchase a used bike?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+            To buy a second-hand bike from Prakruthi Re-Ride, you’ll need a valid government ID (like Aadhaar, PAN, or DL), recent address proof, and a passport-size photo. For financing options, income proof may be required. We take care of the RC transfer and paperwork to make things hassle-free for you.
+          </div>
+        </details>
+
+
+          <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >Is it possible to take a test ride before purchasing a second-hand bike?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+            Yes. You can visit your nearest Prakruthi Re-Ride showroom to test ride any refurbished two-wheeler before making a decision. Our team will make sure to engage with you and inform you regarding your options, comparisons and help you choose your dream ride.
+          </div>
+        </details>
+
+
+          <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >Do you offer financing options for second-hand bikes?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+            Yes, Prakruthi Re-Ride offers easy two-wheeler finance plans for used bikes. With minimal effort from the user’s end, our team at Prakruthi Re-Ride will make sure to walk you through the multiple EMI options online and/or at our showroom so you can buy your dream bike without much delay.
+          </div>
+        </details>
+
+
+        <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >What should I do if I face any issues after purchasing a used bike?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+           Your security is our priority. If you face any issues after purchasing the refurbished bike, you can contact our top-notch customer service right away or you can also visit our nearest Prakruthi Re-Ride outlet. Our team will take care of the rest.
+          </div>
+        </details>
+
+        <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >How is the value of my bike determined before selling?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+           The value of the bike is determined by the following key factors: Your bike's resale value is calculated using several factors such as brand, model, age, mileage, condition, and service history. Prakruthi Re-Ride uses an approach that combines market trends, demand forecasts, and city-specific pricing to offer a fair and transparent used bike valuation. We strive to bring you the best price.
+          </div>
+        </details>
+
+
+        <details
+          class="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden"
+        >
+          <summary
+            class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-semibold text-brand-primary"
+              >Do you offer doorstep inspection or pickup services for selling bikes?</span
+            >
+            <span
+              class="bg-brand-bg p-2 rounded-full group-open:bg-brand-primary group-open:text-white transition-colors"
+            >
+              <i
+                data-lucide="plus"
+                class="w-4 h-4 transition-transform group-open:rotate-45"
+              ></i>
+            </span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-brand-gray text-sm leading-relaxed border-t border-dashed border-gray-100 pt-4"
+          >
+           Yes, Prakruthi Re-Ride offers doorstep inspection if requested. The inspection will be carried out by professionals who will evaluate the bike and give a fair price for it on spot based on the current bike trends and market rates. It’s all designed to make selling simple, smooth, and convenient for you.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer
+      class="bg-brand-primary text-blue-200 py-12 px-4 border-t border-white/10"
+    >
+      <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 mb-8">
+        <div class="col-span-1 md:col-span-1">
+          <a
+            href="#"
+            class="text-2xl font-bold text-white flex items-center gap-2 mb-4"
+          >
+            <img
+              src="./images/Logo/logo white.png"
+              alt="logo"
+              class="w-50 h-auto object-contain"
+            />
+          </a>
+          <p class="text-sm">Trusted by thousands of riders in Bengaluru.</p>
+          <p class="text-sm">
+            The safest way to buy and sell used two-wheelers.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="./buy.html" class="hover:text-white transition-colors"
+                >Buy Used Bikes</a
+              >
+            </li>
+            <li>
+              <a href="./sell.html" class="hover:text-white transition-colors"
+                >Sell Your Bike</a
+              >
+            </li>
+            <li>
+              <a href="./about.html" class="hover:text-white transition-colors"
+                >About us</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- <div>
+                <h4 class="text-white font-bold mb-4">Support</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Safety Tips</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                </ul>
+            </div> -->
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Contact Us</h4>
+          <p class="text-sm mb-2">Jalhalli, Bengaluru, KA 560038</p>
+          <p class="text-sm mb-4">support@reride.com</p>
+          <div class="flex gap-4">
+            <a href="#" class="hover:text-white transition-colors"
+              ><i data-lucide="facebook" class="w-5 h-5"></i
+            ></a>
+            <a href="#" class="hover:text-white transition-colors"
+              ><i data-lucide="instagram" class="w-5 h-5"></i
+            ></a>
+            <a href="#" class="hover:text-white transition-colors"
+              ><i data-lucide="twitter" class="w-5 h-5"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto pt-8 border-t border-white/10 text-center text-sm"
+      >
+        &copy; 2026 ReRide Bikes.
+        <!-- Made with <i data-lucide="heart" class="w-3 h-3 inline text-red-500"></i> in Bengaluru. -->
+        design and developed by
+        <a href="https://www.thincnext.com/">thincnext</a>
+      </div>
+    </footer>
+
+    <script src="./js/nav.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

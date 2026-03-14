@@ -1,0 +1,130 @@
+ /* Custom Styles for nuances not covered by Tailwind utilities */
+body {
+    background-color: #f9efec;
+    color: #0a1f58;
+    font-family: 'Inter', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #0a1f58 !important;
+}
+
+.glass-nav {
+    background: rgba(249, 239, 236, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(10, 31, 88, 0.05);
+}
+
+.swiper-pagination{
+    position: relative !important
+}
+
+
+/* buy page */
+/* Custom Scrollbar for Filters */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Checkbox Custom Styling */
+.custom-checkbox:checked {
+    background-color: #0a1f58;
+    border-color: #0a1f58;
+}
+
+
+
+/* sell page */
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Option Card Selection Styling */
+.option-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.option-card.selected {
+    border-color: #0a1f58 !important;
+    background-color: rgba(10, 31, 88, 0.05) !important;
+    box-shadow: 0 4px 6px -1px rgba(10, 31, 88, 0.1), 0 2px 4px -1px rgba(10, 31, 88, 0.06);
+    transform: translateY(-2px);
+}
+
+/* Step Transitions */
+.step-content {
+    display: none;
+}
+.step-content.active {
+    display: block;
+    animation: slideInRight 0.4s ease-out forwards;
+}
+
+
+
+/* about */
+/* FAQ Styling */
+details > summary {
+    list-style: none;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+}
+details[open] summary ~ * {
+    animation: slideDown 0.3s ease-in-out;
+}
+
+/* Decorative Blob */
+.blob {
+    position: absolute;
+    filter: blur(60px);
+    z-index: -1;
+    opacity: 0.6;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* contact */
+/* Form Input Autofill Styling Fix */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #f9efec inset !important;
+    -webkit-text-fill-color: #0a1f58 !important;
+}
+
+/* Custom Scrollbar for Branch List */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(10, 31, 88, 0.05);
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(10, 31, 88, 0.2);
+    border-radius: 10px;
+}

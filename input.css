@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@theme {
+  /* ---------- FONTS ---------- */
+  /* Overrides default font-sans */
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* ---------- BRAND COLORS ---------- */
+  /* Usage: bg-brand-bg, text-brand-primary, etc. */
+
+  --color-brand-bg: #f9efec;               /* Warm cream background */
+  --color-brand-primary: #0a1f58;          /* Deep Navy */
+  --color-brand-primary-hover: #06143a;
+  --color-brand-accent: #f9efec;
+  --color-brand-white: #ffffff;
+  --color-brand-gray: #64748b;
+
+  --animate-fade-in-up: fadeInUp 0.5s ease-out forwards;
+  --animate-slide-in-right: slideInRight 0.4s ease-out forwards;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+      

@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Refurbished Bikes | ReRide Bengaluru</title>
+
+    <link rel="stylesheet" href="./input.css" />
+
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="antialiased selection:bg-brand-primary selection:text-white">
+    <!-- 1. Navigation Bar -->
+    <nav
+      id="navbar"
+      class="fixed w-full bg-brand-accent top-0 z-50 transition-all duration-300 py-4"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-12">
+          <!-- Logo & Location -->
+          <div class="flex items-center gap-6">
+            <a
+              href="./index.html"
+              class="text-2xl font-bold tracking-tight text-brand-primary flex items-center gap-2"
+            >
+              <img
+                src="./images/Logo/Reride_Logo.png"
+                alt="Reride Logo"
+                class="h-8 w-auto"
+              />
+            </a>
+
+            <!-- <div class="hidden md:flex items-center gap-1 text-sm font-medium bg-white/50 px-3 py-1.5 rounded-full border border-brand-primary/10">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-brand-primary"></i>
+                        <span>Bengaluru</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 text-brand-gray ml-1"></i>
+                    </div> -->
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="./index.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Home</a
+            >
+            <a
+              href="./buy.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Buy</a
+            >
+            <a
+              href="./sell.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Sell</a
+            >
+            <a
+              href="./about.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >About us</a
+            >
+            <a
+              href="./contact.html"
+              class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="text-brand-primary focus:outline-none"
+            >
+              <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-full left-0 w-full bg-brand-bg border-b border-brand-primary/10 shadow-lg p-4 flex-col gap-4"
+      >
+        <a
+          href="./buy.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >Buy</a
+        >
+        <a
+          href="./sell.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >Sell</a
+        >
+        <a
+          href="./about.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >About us</a
+        >
+        <a
+          href="./contact.html"
+          class="text-brand-primary font-medium hover:text-brand-primary/70 transition-colors"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <!-- 2. Page Header -->
+    <div class="pt-24 pb-8 px-4 bg-white border-b border-brand-primary/5">
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between gap-4"
+        >
+          <div>
+            <h1 class="text-3xl font-bold text-brand-primary">
+              Book Your Vehicle
+            </h1>
+            <p class="text-brand-gray mt-1">
+              142 ReRide Certified bikes available in Bengaluru
+            </p>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="flex gap-2">
+            <div class="relative w-full md:w-96">
+              <input
+                type="text"
+                placeholder="Search by bike name (e.g. Classic 350)"
+                class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none bg-brand-bg/50"
+              />
+              <i
+                data-lucide="search"
+                class="absolute left-3 top-3.5 w-5 h-5 text-brand-gray"
+              ></i>
+            </div>
+            <button class="bg-brand-primary text-white px-4 rounded-xl">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Main Layout -->
+    <div class="mx-auto">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Mobile Filter Toggle -->
+        <button
+          onclick="toggleFilters()"
+          class="lg:hidden w-full flex items-center justify-center gap-2 bg-white border border-brand-primary/20 py-3 rounded-xl font-bold text-brand-primary shadow-sm"
+        >
+          <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
+          Filters & Sort
+        </button>
+
+        <!-- LEFT SIDEBAR: Filters -->
+        <aside
+          id="filter-sidebar"
+          class="hidden lg:block w-full lg:w-72 shrink-0"
+        >
+          <div
+            class="bg-white shadow-sm border border-brand-primary/5 p-6 sticky top-20 max-h-[calc(100vh-5rem)] overflow-y-auto custom-scrollbar"
+          >
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-lg font-bold text-brand-primary">Filters</h3>
+              <button
+                class="text-sm text-brand-gray hover:text-brand-primary underline cursor-pointer"
+              >
+                Clear All
+              </button>
+            </div>
+
+            <!-- Filter Group: Search Type / Category -->
+            <div class="mb-8">
+              <h4
+                class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
+              >
+                Vehicle Type
+              </h4>
+              <div class="space-y-2">
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox transition-all"
+                  />
+                  <span
+                    class="text-brand-gray group-hover:text-brand-primary transition-colors"
+                    >Motorcycles</span
+                  >
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox transition-all"
+                  />
+                  <span
+                    class="text-brand-gray group-hover:text-brand-primary transition-colors"
+                    >Scooters</span
+                  >
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox transition-all"
+                  />
+                  <span
+                    class="text-brand-gray group-hover:text-brand-primary transition-colors"
+                    >Electric</span
+                  >
+                </label>
+              </div>
+            </div>
+
+            <!-- Filter Group: Price -->
+            <div class="mb-8 border-t border-gray-100 pt-6">
+              <h4
+                class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-4"
+              >
+                Price Range
+              </h4>
+              <div class="flex gap-2 mb-4">
+                <input
+                  type="text"
+                  placeholder="Min"
+                  class="w-1/2 p-2 text-sm border rounded-lg bg-gray-50 text-center"
+                  value="₹20k"
+                />
+                <input
+                  type="text"
+                  placeholder="Max"
+                  class="w-1/2 p-2 text-sm border rounded-lg bg-gray-50 text-center"
+                  value="₹3L"
+                />
+              </div>
+              <div class="space-y-2">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="price"
+                    class="text-brand-primary focus:ring-brand-primary"
+                  />
+                  <span class="text-sm text-brand-gray">Under ₹50,000</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="price"
+                    class="text-brand-primary focus:ring-brand-primary"
+                  />
+                  <span class="text-sm text-brand-gray">₹50,000 - ₹1 Lakh</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="price"
+                    class="text-brand-primary focus:ring-brand-primary"
+                  />
+                  <span class="text-sm text-brand-gray">Above ₹1 Lakh</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Filter Group: Brand -->
+            <div class="mb-8 border-t border-gray-100 pt-6">
+              <h4
+                class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
+              >
+                Brand
+              </h4>
+              <div class="space-y-2">
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked
+                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
+                  />
+                  <span class="text-brand-gray"
+                    >Royal Enfield
+                    <span class="text-xs text-gray-400">(45)</span></span
+                  >
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
+                  />
+                  <span class="text-brand-gray"
+                    >Honda <span class="text-xs text-gray-400">(32)</span></span
+                  >
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
+                  />
+                  <span class="text-brand-gray"
+                    >TVS <span class="text-xs text-gray-400">(28)</span></span
+                  >
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
+                  />
+                  <span class="text-brand-gray"
+                    >KTM <span class="text-xs text-gray-400">(15)</span></span
+                  >
+                </label>
+              </div>
+            </div>
+
+            <!-- Filter Group: Year -->
+            <div class="mb-8 border-t border-gray-100 pt-6">
+              <h4
+                class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
+              >
+                Model Year
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  class="px-3 py-1 text-xs font-semibold rounded-full bg-brand-primary text-white border border-brand-primary"
+                >
+                  2023+
+                </button>
+                <button
+                  class="px-3 py-1 text-xs font-semibold rounded-full bg-white text-brand-gray border border-gray-200 hover:border-brand-primary"
+                >
+                  2021-2022
+                </button>
+                <button
+                  class="px-3 py-1 text-xs font-semibold rounded-full bg-white text-brand-gray border border-gray-200 hover:border-brand-primary"
+                >
+                  Old is Gold
+                </button>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-brand-primary text-white font-bold py-3 rounded-xl hover:bg-brand-primary-hover transition-colors cursor-pointer"
+            >
+              Apply Filters
+            </button>
+          </div>
+        </aside>
+
+        <!-- RIGHT CONTENT: Product Grid -->
+        <main class="flex-1 p-6">
+          <!-- Sorting & Quick Filters -->
+          <div class="flex justify-between items-center mb-6">
+            <p class="text-sm text-brand-gray">
+              <span class="font-bold text-brand-primary">142</span> bikes found
+            </p>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-brand-gray hidden sm:inline"
+                >Sort by:</span
+              >
+              <select
+                class="bg-white border border-gray-200 text-brand-primary text-sm font-semibold rounded-lg p-2.5 focus:ring-brand-primary focus:border-brand-primary outline-none cursor-pointer"
+              >
+                <option>Relevance</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Newest First</option>
+                <option>Mileage: High to Low</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Product Card 1 -->
+            <div
+              class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-primary/5 group relative"
+            >
+              <button
+                class="absolute top-3 right-3 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors"
+              >
+                <i data-lucide="heart" class="w-4 h-4"></i>
+              </button>
+              <div class="relative h-48 overflow-hidden">
+                <span
+                  class="absolute top-3 left-3 bg-brand-primary text-white text-[10px] uppercase font-bold px-2 py-1 rounded-md z-10 tracking-wide"
+                  >ReRide Certified</span
+                >
+                <img
+                  src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Bike"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3
+                    class="font-bold text-lg text-brand-primary leading-tight"
+                  >
+                    Royal Enfield Classic 350
+                  </h3>
+                  <span
+                    class="bg-green-50 text-green-700 text-xs font-bold px-2 py-1 rounded-md"
+                    >4.8 <i data-lucide="star" class="w-3 h-3 inline"></i
+                  ></span>
+                </div>
+                <div
+                  class="flex items-center gap-3 text-xs text-brand-gray mb-3"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="calendar" class="w-3 h-3"></i> 2021</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="gauge" class="w-3 h-3"></i> 12k km</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="fuel" class="w-3 h-3"></i> Petrol</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center pt-3 border-t border-gray-50"
+                >
+                  <div>
+                    <p class="text-xs text-gray-400">Fixed Price</p>
+                    <p class="text-xl font-bold text-brand-primary">
+                      ₹1.85 Lakh
+                    </p>
+                  </div>
+                  <button
+                    class="bg-transparent border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+                  >
+                    View
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div
+              class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-primary/5 group relative"
+            >
+              <button
+                class="absolute top-3 right-3 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors"
+              >
+                <i data-lucide="heart" class="w-4 h-4"></i>
+              </button>
+              <div class="relative h-48 overflow-hidden">
+                <span
+                  class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] uppercase font-bold px-2 py-1 rounded-md z-10 tracking-wide"
+                  >Refurbished</span
+                >
+                <img
+                  src="https://images.unsplash.com/photo-1542318859-96695379ce3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Bike"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3
+                    class="font-bold text-lg text-brand-primary leading-tight"
+                  >
+                    KTM Duke 200
+                  </h3>
+                  <span
+                    class="bg-green-50 text-green-700 text-xs font-bold px-2 py-1 rounded-md"
+                    >4.5 <i data-lucide="star" class="w-3 h-3 inline"></i
+                  ></span>
+                </div>
+                <div
+                  class="flex items-center gap-3 text-xs text-brand-gray mb-3"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="calendar" class="w-3 h-3"></i> 2019</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="gauge" class="w-3 h-3"></i> 24k km</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="map-pin" class="w-3 h-3"></i>
+                    Indiranagar</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center pt-3 border-t border-gray-50"
+                >
+                  <div>
+                    <p class="text-xs text-gray-400">EMI from ₹2k</p>
+                    <p class="text-xl font-bold text-brand-primary">₹85,000</p>
+                  </div>
+                  <button
+                    class="bg-transparent border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+                  >
+                    View
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div
+              class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-primary/5 group relative"
+            >
+              <button
+                class="absolute top-3 right-3 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors"
+              >
+                <i data-lucide="heart" class="w-4 h-4"></i>
+              </button>
+              <div class="relative h-48 overflow-hidden">
+                <span
+                  class="absolute top-3 left-3 bg-green-600 text-white text-[10px] uppercase font-bold px-2 py-1 rounded-md z-10 tracking-wide"
+                  >Best Value</span
+                >
+                <img
+                  src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Bike"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3
+                    class="font-bold text-lg text-brand-primary leading-tight"
+                  >
+                    TVS Apache RTR 160
+                  </h3>
+                  <span
+                    class="bg-green-50 text-green-700 text-xs font-bold px-2 py-1 rounded-md"
+                    >4.2 <i data-lucide="star" class="w-3 h-3 inline"></i
+                  ></span>
+                </div>
+                <div
+                  class="flex items-center gap-3 text-xs text-brand-gray mb-3"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="calendar" class="w-3 h-3"></i> 2020</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="gauge" class="w-3 h-3"></i> 18k km</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="zap" class="w-3 h-3"></i> 4V</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center pt-3 border-t border-gray-50"
+                >
+                  <div>
+                    <p class="text-xs text-gray-400">Top Seller</p>
+                    <p class="text-xl font-bold text-brand-primary">₹62,000</p>
+                  </div>
+                  <button
+                    class="bg-transparent border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+                  >
+                    View
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div
+              class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-primary/5 group relative"
+            >
+              <button
+                class="absolute top-3 right-3 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors"
+              >
+                <i data-lucide="heart" class="w-4 h-4"></i>
+              </button>
+              <div class="relative h-48 overflow-hidden">
+                <span
+                  class="absolute top-3 left-3 bg-purple-600 text-white text-[10px] uppercase font-bold px-2 py-1 rounded-md z-10 tracking-wide"
+                  >Scooter</span
+                >
+                <img
+                  src="https://images.unsplash.com/photo-1625043484555-47841a754d20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Bike"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3
+                    class="font-bold text-lg text-brand-primary leading-tight"
+                  >
+                    Honda Activa 6G
+                  </h3>
+                  <span
+                    class="bg-green-50 text-green-700 text-xs font-bold px-2 py-1 rounded-md"
+                    >4.9 <i data-lucide="star" class="w-3 h-3 inline"></i
+                  ></span>
+                </div>
+                <div
+                  class="flex items-center gap-3 text-xs text-brand-gray mb-3"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="calendar" class="w-3 h-3"></i> 2022</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="gauge" class="w-3 h-3"></i> 5k km</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="map-pin" class="w-3 h-3"></i> HSR
+                    Layout</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center pt-3 border-t border-gray-50"
+                >
+                  <div>
+                    <p class="text-xs text-gray-400">Warranty</p>
+                    <p class="text-xl font-bold text-brand-primary">₹72,000</p>
+                  </div>
+                  <button
+                    class="bg-transparent border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+                  >
+                    View
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 5 -->
+            <div
+              class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-primary/5 group relative"
+            >
+              <button
+                class="absolute top-3 right-3 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors"
+              >
+                <i data-lucide="heart" class="w-4 h-4"></i>
+              </button>
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1591147055726-2a78f244101e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Bike"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3
+                    class="font-bold text-lg text-brand-primary leading-tight"
+                  >
+                    Honda CB350 H'ness
+                  </h3>
+                  <span
+                    class="bg-green-50 text-green-700 text-xs font-bold px-2 py-1 rounded-md"
+                    >4.7 <i data-lucide="star" class="w-3 h-3 inline"></i
+                  ></span>
+                </div>
+                <div
+                  class="flex items-center gap-3 text-xs text-brand-gray mb-3"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="calendar" class="w-3 h-3"></i> 2022</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="gauge" class="w-3 h-3"></i> 8k km</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="award" class="w-3 h-3"></i> Pro Model</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center pt-3 border-t border-gray-50"
+                >
+                  <div>
+                    <p class="text-xs text-gray-400">Mint Condition</p>
+                    <p class="text-xl font-bold text-brand-primary">
+                      ₹2.10 Lakh
+                    </p>
+                  </div>
+                  <button
+                    class="bg-transparent border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+                  >
+                    View
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 6 -->
+            <div
+              class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-primary/5 group relative"
+            >
+              <button
+                class="absolute top-3 right-3 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors"
+              >
+                <i data-lucide="heart" class="w-4 h-4"></i>
+              </button>
+              <div class="relative h-48 overflow-hidden">
+                <span
+                  class="absolute top-3 left-3 bg-gray-800 text-white text-[10px] uppercase font-bold px-2 py-1 rounded-md z-10 tracking-wide"
+                  >Sold Out</span
+                >
+                <div class="absolute inset-0 bg-gray-900/50 z-0"></div>
+                <img
+                  src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Bike"
+                  class="w-full h-full object-cover grayscale opacity-75"
+                />
+              </div>
+              <div class="p-4 opacity-75">
+                <div class="flex justify-between items-start mb-2">
+                  <h3
+                    class="font-bold text-lg text-brand-primary leading-tight"
+                  >
+                    Bajaj Dominar 400
+                  </h3>
+                  <span class="text-brand-gray text-xs font-bold px-2 py-1"
+                    >Sold</span
+                  >
+                </div>
+                <div
+                  class="flex items-center gap-3 text-xs text-brand-gray mb-3"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="calendar" class="w-3 h-3"></i> 2019</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="gauge" class="w-3 h-3"></i> 21k km</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center pt-3 border-t border-gray-50"
+                >
+                  <div>
+                    <p class="text-xs text-gray-400">Was Listed at</p>
+                    <p class="text-xl font-bold text-brand-primary">
+                      ₹1.45 Lakh
+                    </p>
+                  </div>
+                  <button
+                    disabled
+                    class="bg-gray-100 text-gray-400 cursor-not-allowed px-4 py-2 rounded-lg text-sm font-semibold"
+                  >
+                    Sold
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Load More -->
+          <div class="mt-12 text-center">
+            <button
+              class="bg-white border-2 border-brand-primary/20 text-brand-primary font-bold py-3 px-8 rounded-xl hover:bg-brand-primary hover:text-white transition-all shadow-sm cursor-pointer"
+            >
+              Load More Vehicles
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- 4. Footer -->
+    <footer
+      class="bg-brand-primary text-blue-200 py-12 px-4 border-t border-white/10"
+    >
+      <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 mb-8">
+        <div class="col-span-1 md:col-span-1">
+          <a
+            href="#"
+            class="text-2xl font-bold text-white flex items-center gap-2 mb-4"
+          >
+            <img
+              src="./images/Logo/logo white.png"
+              alt="logo"
+              class="w-50 h-auto object-contain"
+            />
+          </a>
+          <p class="text-sm">Trusted by thousands of riders in Bengaluru.</p>
+          <p class="text-sm">
+            The safest way to buy and sell used two-wheelers.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="./buy.html" class="hover:text-white transition-colors"
+                >Buy Used Bikes</a
+              >
+            </li>
+            <li>
+              <a href="./sell.html" class="hover:text-white transition-colors"
+                >Sell Your Bike</a
+              >
+            </li>
+            <li>
+              <a href="./about.html" class="hover:text-white transition-colors"
+                >About us</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- <div>
+                <h4 class="text-white font-bold mb-4">Support</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Safety Tips</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                </ul>
+            </div> -->
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Contact Us</h4>
+          <p class="text-sm mb-2">Jalhalli, Bengaluru, KA 560038</p>
+          <p class="text-sm mb-4">support@reride.com</p>
+          <div class="flex gap-4">
+            <a href="#" class="hover:text-white transition-colors"
+              ><i data-lucide="facebook" class="w-5 h-5"></i
+            ></a>
+            <a href="#" class="hover:text-white transition-colors"
+              ><i data-lucide="instagram" class="w-5 h-5"></i
+            ></a>
+            <a href="#" class="hover:text-white transition-colors"
+              ><i data-lucide="twitter" class="w-5 h-5"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto pt-8 border-t border-white/10 text-center text-sm"
+      >
+        &copy; 2026 ReRide Bikes.
+        <!-- Made with <i data-lucide="heart" class="w-3 h-3 inline text-red-500"></i> in Bengaluru. -->
+        design and developed by
+        <a href="https://www.thincnext.com/">thincnext</a>
+      </div>
+    </footer>
+
+    <!-- Overlay for Mobile Filters -->
+    <div
+      id="filter-overlay"
+      class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
+      onclick="toggleFilters()"
+    ></div>
+
+    <!-- Mobile Drawer for Filters -->
+    <div
+      id="mobile-filter-drawer"
+      class="fixed inset-y-0 left-0 w-80 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto"
+    >
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-lg font-bold text-brand-primary">Filters</h3>
+          <button onclick="toggleFilters()" class="text-brand-gray">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <!-- Duplicate Filter Content for Mobile (Simulated logic for prototype) -->
+        <div class="space-y-6">
+          <!-- Mobile Search Type -->
+          <div>
+            <h4
+              class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
+            >
+              Vehicle Type
+            </h4>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  class="w-5 h-5 rounded border-gray-300 custom-checkbox"
+                />
+                <span class="text-brand-gray">Motorcycles</span>
+              </label>
+              <label class="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  class="w-5 h-5 rounded border-gray-300 custom-checkbox"
+                />
+                <span class="text-brand-gray">Scooters</span>
+              </label>
+            </div>
+          </div>
+          <!-- Mobile Price -->
+          <div class="border-t pt-4">
+            <h4
+              class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
+            >
+              Price
+            </h4>
+            <label class="flex items-center gap-2 mb-2">
+              <input
+                type="radio"
+                name="mobile-price"
+                class="text-brand-primary"
+              />
+              <span class="text-sm text-brand-gray">Under ₹50,000</span>
+            </label>
+            <label class="flex items-center gap-2">
+              <input
+                type="radio"
+                name="mobile-price"
+                class="text-brand-primary"
+              />
+              <span class="text-sm text-brand-gray">₹50,000+</span>
+            </label>
+          </div>
+
+          <button
+            class="w-full bg-brand-primary text-white font-bold py-3 rounded-xl mt-4"
+            onclick="toggleFilters()"
+          >
+            Apply Filters
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/nav.js"></script>
+    <script>
+      lucide.createIcons();
+
+      function toggleFilters() {
+        const drawer = document.getElementById("mobile-filter-drawer");
+        const overlay = document.getElementById("filter-overlay");
+
+        if (drawer.classList.contains("-translate-x-full")) {
+          drawer.classList.remove("-translate-x-full");
+          overlay.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        } else {
+          drawer.classList.add("-translate-x-full");
+          overlay.classList.add("hidden");
+          document.body.style.overflow = "auto";
+        }
+      }
+    </script>
+  </body>
+</html>
