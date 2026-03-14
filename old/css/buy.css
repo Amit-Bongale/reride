@@ -1,0 +1,84 @@
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  color: #1f1f1f;
+  background: #fff;
+}
+
+.card{
+  border-bottom:1px solid black;
+  width:100%;
+  border:1px solid rgb(205, 205, 205);
+  border-radius:8px; 
+  padding:10px;
+  margin:0 auto;
+  display:block;
+}
+
+.book-btn {
+  display: inline-block;
+  margin: 4px 0px;
+  padding: 10px 16px;
+  border: 1px solid rgb(216,202,216);
+  border-radius: 8px;
+  background-color: #0A1F58;
+  color: #f5f5f5;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.book-btn:hover {
+  background-color: #fff;
+  color: #0A1F58;
+}
+
+
+
+/* new  */
+
+.vehicle-card {
+  border-radius: 14px;
+}
+
+.vehicle-card:hover {
+  /* transform: translateY(-5px); */
+  cursor: pointer;
+  box-shadow: 10px 10px 20px rgb(0, 0, 0);
+}
+
+.vehicle-image img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.assured-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: #0A1F58;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0e2870;
+} 
+
+.card-footer .btn {
+  background-color: #0a1f58;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.card-footer .btn:hover {
+  background-color: #143eb0;
+  color: #fff;
+}

@@ -1,0 +1,150 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #1f1f1f;
+  background: #fff;
+}
+
+    /* ========== HERO ========== */
+    /* .hero-img {
+      width: 100vw;
+      object-fit: cover;
+      filter: brightness(0.55);
+      height: 50vh;
+    }
+
+    @media (max-width:768px){
+        .hero-img{
+            height: 30vh;
+        }
+    } */
+
+.hero-img {
+  width: 100%;               /* safer than 100vw */
+  height: 60vh;              /* default height */
+  object-fit: cover;         /* ensures image covers fully */
+  object-position: center;   /* keeps focal point centered */
+  filter: brightness(0.55);
+  display: block;            /* remove inline gaps */
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hero-img {
+    height: 45vh;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-img {
+    height: 35vh;
+  }
+}
+
+/* Extra small */
+@media (max-width: 480px) {
+  .hero-img {
+    height: 30vh;
+  }
+}
+
+
+    .hero-content {
+      position: absolute;
+      z-index: 5;
+    }
+    .breadcrumbs a {
+      text-decoration: none;
+    }
+
+    /* ========== CONTACT INFO ========== */
+    .contact-info p {
+        
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+    .contact-info span {
+      font-weight: 600;
+      color: #0A1F58;
+    }
+    .contact-info h2{
+        color: #0A1F58;
+        font-weight: 600;
+    }
+
+    /* ========== FORM ========== */
+    .form-control {
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    /* .form-control:focus{
+        border: 2px solid #0A1F58 !important;
+    } */
+
+    .btn-white {
+      padding: 12px 25px;
+      border-radius: 8px;
+      background-color: #0A1F58;
+      color: white;
+      
+      
+    }
+
+    .border-brand {
+  border: 2px solid #0A1F58 !important;
+  
+}
+
+
+    /* ========== MAP ========== */
+    /* .map-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+    .map-container iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    } */
+
+
+
+
+    /* Default (desktop & mobile) keeps aspect ratio */
+.map-container {
+  position: relative;
+  
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.map-container iframe {
+  position: absolute;
+  
+  top: 0; left: 0; width: 100%; height: 100%; border: 0;
+}
+
+/* Tablet and above: make iframe full height like form */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .map-container {
+    padding-bottom: 5px;   /* remove fixed aspect ratio */
+    height: 100%;        /* take full column height */
+    min-height: 100%; 
+       /* ensures it stretches with form */
+  }
+
+  .map-container iframe {
+    position: relative;  /* reset to normal flow */
+    height: 100%;
+    
+  }
+}

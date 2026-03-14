@@ -1,0 +1,346 @@
+
+:root {
+    --primary-color: #0a1f58;
+    --primary-hover: #172e6f;
+    --text-dark: #333;
+    --text-muted: #666;
+    --border-color: #e0e0e0;
+    --bg-light: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.form-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.form-header {
+    background: white;
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.step-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.step-tab {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background: white;
+    color: var(--text-muted);
+    font-size: 14px;
+    position: relative;
+}
+
+.step-tab.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.step-tab.completed {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.form-content {
+    padding: 40px 30px;
+    min-height: 500px;
+}
+
+.step-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.step-title .highlight {
+    color: var(--primary-color);
+}
+
+.step-counter {
+    position: absolute;
+    top: 85px;
+    right: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.option-card {
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.option-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+}
+
+.option-card.selected {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+.option-card .brand-logo {
+    width: 60px;
+    height: 40px;
+    margin: 0 auto 15px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.option-card.selected .brand-logo {
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.option-card h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px ;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+}
+
+.search-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.model-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.model-item {
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+}
+
+.model-item:hover {
+    border-color: var(--primary-color);
+    background: rgba(255, 107, 53, 0.05);
+}
+
+.rto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.rto-item {
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.rto-item:hover {
+    border-color: var(--primary-color);
+    background: rgba(255, 107, 53, 0.05);
+}
+
+.rto-item.selected {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+.input-group-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.odometer-input {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.unit-label {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.continue-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.step-content {
+    display: none;
+}
+
+.step-content.active {
+    display: block;
+}
+
+.year-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.state-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.loading .spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        margin: 10px;
+        border-radius: 0;
+    }
+    
+    .form-header {
+        padding: 15px 20px;
+    }
+    
+    .form-content {
+        padding: 20px;
+    }
+    
+    .step-title {
+        font-size: 24px;
+    }
+    
+    .options-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+    
+    .step-tabs {
+        gap: 5px;
+    }
+    
+    .step-tab {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}

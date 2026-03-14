@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell | ReRide</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/sell.css" />
+  </head>
+
+  <script>
+    function indexSearch() {
+      const input = document.getElementById("indexSearch");
+      if (!input) return;
+      const query = input.value.trim();
+      if (!query) {
+        alert("Please enter a search term.");
+        return;
+      }
+      // encode and redirect to buy.html with query param "q"
+      const encoded = encodeURIComponent(query);
+      window.location.href = `./buy.html?q=${encoded}`;
+    }
+  </script>
+
+  <body>
+    <!-- nav -->
+    <header class="header">
+      <div class="d-flex justify-content-between align-items-start">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <img src="./images/home/Reride_Logo.png" alt="Reride Logo" />
+        </a>
+
+        <!-- Right side: Hamburger + Nav -->
+        <div class="d-flex flex-column align-items-end">
+          <!-- Hamburger -->
+          <button class="hamburger d-lg-none ms-3" id="hamburger">
+            &#9776;
+          </button>
+
+          <!-- Navigation -->
+          <nav class="nav" id="navMenu">
+            <ul class="nav__list">
+              <!-- Search -->
+              <li class="nav-item">
+                <div class="search-container">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="nav-search-input"
+                    id="indexSearch"
+                  />
+                  <button class="search-btn" onclick="indexSearch()">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="#fff"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M10,2A8,8 0 1,0 18,10A8,8 0 0,0 10,2M22,22L17,17"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </li>
+              <!-- Links -->
+              <li class="nav-item">
+                <a href="./index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="./aboutUs.html" class="nav-link">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="./buy.html" class="nav-link">Buy</a>
+              </li>
+              <li class="nav-item">
+                <a href="./sell.html" class="nav-link active">Sell</a>
+              </li>
+              <li class="nav-item">
+                <a href="./contact.html" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-fluid mt-5">
+      <div class="form-container">
+        <!-- Header -->
+        <div class="form-header">
+          <button
+            class="back-btn"
+            onclick="previousStep()"
+            id="backBtn"
+            style="display: none"
+          >
+            <i class="fas fa-arrow-left"></i>
+          </button>
+
+          <div class="step-tabs" id="stepTabs">
+            <div class="step-tab active">Brand</div>
+            <div class="step-tab">Vehicle Type</div>
+            <div class="step-tab">Model</div>
+            <div class="step-tab">Model Year</div>
+            <div class="step-tab">Colour</div>
+            <div class="step-tab">Purchase Details</div>
+            <div class="step-tab">Owner</div>
+            <div class="step-tab">Photos & Registration</div>
+            <div class="step-tab">Inspection </div>
+            <div class="step-tab">Contact</div>
+          </div>
+        </div>
+
+        <!-- Form Content -->
+        <div class="form-content">
+          <div class="step-counter" id="stepCounter">1/14</div>
+
+          <!-- Step 1: Brand Selection -->
+          <div class="step-content active" id="step1">
+            <h2 class="step-title">
+              Select the <span class="highlight">Brand</span> of your
+              two-wheeler
+            </h2>
+            <div class="options-grid" id="brandGrid">
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'TVS', 1)"
+              >
+                <div class="brand-logo">TVS</div>
+                <h5>TVS</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Bajaj', 1)"
+              >
+                <div class="brand-logo">BAJAJ</div>
+                <h5>Bajaj</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Hero', 1)"
+              >
+                <div class="brand-logo">HERO</div>
+                <h5>Hero</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Honda', 1)"
+              >
+                <div class="brand-logo">HONDA</div>
+                <h5>Honda</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Yamaha', 1)"
+              >
+                <div class="brand-logo">YAMAHA</div>
+                <h5>Yamaha</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Royal Enfield', 1)"
+              >
+                <div class="brand-logo">RE</div>
+                <h5>Royal Enfield</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Suzuki', 1)"
+              >
+                <div class="brand-logo">SUZUKI</div>
+                <h5>Suzuki</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Jawa', 1)"
+              >
+                <div class="brand-logo">JAWA</div>
+                <h5>Jawa</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'KTM', 1)"
+              >
+                <div class="brand-logo">KTM</div>
+                <h5>KTM</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Kawasaki', 1)"
+              >
+                <div class="brand-logo">KAWA</div>
+                <h5>Kawasaki</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'OLA', 1)"
+              >
+                <div class="brand-logo">OLA</div>
+                <h5>OLA</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Vespa', 1)"
+              >
+                <div class="brand-logo">VESPA</div>
+                <h5>Vespa</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Indian', 1)"
+              >
+                <div class="brand-logo">Indian</div>
+                <h5>Indian</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('brand', 'Ultraviolette', 1)"
+              >
+                <div class="brand-logo">Ultraviolette</div>
+                <h5>Ultraviolette</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Vehicle Type Selection -->
+          <div class="step-content" id="step2">
+            <h2 class="step-title">
+              Select the <span class="highlight">Type</span> of your two-wheeler
+            </h2>
+            <div class="options-grid" id="vehicleTypeGrid">
+              <div
+                class="option-card"
+                onclick="selectOption('vehicleType', 'Bike', 2)"
+              >
+                <div class="brand-logo"><i class="fas fa-motorcycle"></i></div>
+                <h5>Bike</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('vehicleType', 'Scooter', 2)"
+              >
+                <div class="brand-logo"><i class="fas fa-bicycle"></i></div>
+                <h5>Scooter</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Model Selection -->
+          <div class="step-content" id="step3">
+            <h2 class="step-title">
+              Select the <span class="highlight">Model</span> of your
+              two-wheeler
+            </h2>
+            <div class="search-box">
+              <i class="fas fa-search search-icon "></i>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="eg: Aspire 100"
+                id="modelSearch"
+                oninput="filterModels()"
+              />
+            </div>
+            <div class="model-list" id="modelList">
+              <!-- Models will be populated based on brand selection -->
+            </div>
+          </div>
+
+          <!-- Step 4: Year Selection -->
+          <div class="step-content" id="step4">
+            <h2 class="step-title">
+              Select the <span class="highlight">Year</span> of your two-wheeler
+            </h2>
+            <div class="year-grid" id="yearGrid">
+              <!-- Years will be populated -->
+            </div>
+          </div>
+
+          <!-- Step 3: Variant Selection -->
+          <!-- <div class="step-content" id="step3">
+            <h2 class="step-title">
+              Select the <span class="highlight">Variant</span> of your
+              two-wheeler
+            </h2>
+            <div class="search-box">
+              <i class="fas fa-search search-icon"></i>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search variant"
+                id="variantSearch"
+                oninput="filterVariants()"
+              />
+            </div>
+            <div class="model-list" id="variantList">
+              Variants will be populated 
+            </div>
+          </div> -->
+
+          <div id="step5" class="step-content">
+            <h2>Select Vehicle Colour</h2>
+            <div
+              id="colorGrid"
+              class="grid grid-cols-2 md:grid-cols-4 gap-3"
+            ></div>
+          </div>
+
+          <!-- Step 5: State Selection -->
+          <div class="step-content" id="step6">
+            <h2 class="mb-4">Enter Purchase Details</h2>
+            <div class="mb-3">
+              <label for="purchaseYear" class="form-label">Purchase Date</label>
+              <input type="date" name="purchaseYear" id="purchaseYear" class="search-input" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="purchaseAmount" class="form-label"
+                >Purchase Amount (₹)</label
+              >
+              <input
+                type="number"
+                id="purchaseAmount"
+                class=" search-input"
+                placeholder="e.g. 600000"
+                required
+              />
+            </div>
+
+            <div class="text-end">
+              <button
+                type="button"
+                id="purchase-btn"
+                class="continue-btn"
+                style="display: none;"
+                onclick="nextStep(6)"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 6: Owner Selection -->
+          <div class="step-content" id="step7">
+            <h2 class="step-title">
+              Select <span class="highlight">Owner</span> type
+            </h2>
+            <div class="options-grid">
+              <div
+                class="option-card"
+                onclick="selectOption('owner', '1st Owner', 7)"
+              >
+                <div class="brand-logo">1st</div>
+                <h5>1st Owner</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('owner', '2nd Owner',7)"
+              >
+                <div class="brand-logo">2nd</div>
+                <h5>2nd Owner</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('owner', '3rd Owner', 7)"
+              >
+                <div class="brand-logo">3rd</div>
+                <h5>3rd Owner</h5>
+              </div>
+              <div
+                class="option-card"
+                onclick="selectOption('owner', '4+ Owner', 7)"
+              >
+                <div class="brand-logo">4+</div>
+                <h5>4+ Owner</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 12: Photos -->
+          <div class="step-content" id="step8">
+            <h2 class="step-title">Vehicle Registration & Photos</h2>
+
+            <div class="mb-3">
+              <label for="purchaseAmount" class="form-label"
+                >Enter Vehicle Registration Number</label
+              >
+              <input
+                type="text"
+                id="registrationNumber"
+                class="search-input"
+                placeholder="e.g. KA 01 AB 1234"
+                required
+              />
+            </div>
+
+            <div style="text-align: center; padding: 40px">
+              <i
+                class="fas fa-camera"
+                style="
+                  font-size: 60px;
+                  color: var(--primary-color);
+                  margin-bottom: 20px;
+                "
+              ></i>
+              <p style="font-size: 18px; margin-bottom: 30px">
+                Upload clear photos of your vehicle [Max 5]
+              </p>
+              <input
+                type="file"
+                multiple
+                accept="image/*"
+                style="display: none"
+                id="photoInput"
+              />
+              <button
+                class="continue-btn"
+                onclick="document.getElementById('photoInput').click()"
+                style="max-width: 300px"
+              >
+                <i class="fas fa-upload"></i> Choose Photos
+              </button>
+              <div id="photoPreview" style="margin-top: 20px"></div>
+              <button
+                class="continue-btn"
+                id="registration-btn"
+                onclick="nextStep(8)"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <div id="step9" class="step-content">
+            <h2>Inspection Details</h2>
+            <div class="flex flex-col gap-4">
+              <div class="mb-3">
+                <label for="inspectionDate" class="mb-1">Inspection Date</label>
+                <input type="date" id="inspectionDate" class="search-input" min="" />
+              </div>
+              <div>
+                <label for="inspectionLocation" class="mb-1">Inspection Branch</label>
+                <Select id="inspectionLocation" class="search-input" >
+                  <option value = ""> - select Location - </option>
+                </Select>
+                <script>
+                  // Fetch locations when page loads
+                  fetch("/api/branch/website/getBranches")
+                  .then(response => response.json())
+                  .then(data => {
+                    const select = document.getElementById('inspectionLocation');
+                    data.forEach(branch => {
+                    const option = document.createElement('option');
+                    option.value = branch.branchId;
+                    option.textContent = branch.branchArea;
+                    select.appendChild(option);
+                    });
+                  })
+                  .catch(error => {
+                    console.error('Error fetching locations:', error);
+                    const select = document.getElementById('select-location');
+                    select.innerHTML = '<option>Error loading locations</option>';
+                  });
+                </script>
+              </div>
+              
+              <button
+                class="continue-btn"
+                id="inspection-btn"
+                onclick="nextStep(9)"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <div class="step-content" id="step10">
+            <h2 class="step-title">
+              Contact <span class="highlight">Information</span>
+            </h2>
+            <div style="max-width: 500px; margin: 0 auto">
+              <div style="margin-bottom: 20px">
+                <label
+                  style="display: block; margin-bottom: 8px; font-weight: 600"
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Enter your full name"
+                  id="fullName"
+                  style="border-radius: 8px"
+                />
+              </div>
+              <div style="margin-bottom: 20px">
+                <label
+                  style="display: block; margin-bottom: 8px; font-weight: 600"
+                  >Mobile Number</label
+                >
+                <input
+                  type="tel"
+                  class="search-input"
+                  placeholder="Enter mobile number"
+                  id="mobileNumber"
+                  style="border-radius: 8px"
+                />
+              </div>
+
+              <div style="margin-bottom: 20px">
+                <label
+                  style="display: block; margin-bottom: 8px; font-weight: 600"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  class="search-input"
+                  placeholder="Enter email address"
+                  id="emailAddress"
+                  style="border-radius: 1px"
+                />
+              </div>
+
+              <button class="continue-btn" id="contact-btn" onclick="submitForm()" style="display: none;">
+                Submit Vehicle Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="/js/sell.js"></script>
+</html>
