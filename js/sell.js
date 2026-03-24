@@ -170,19 +170,20 @@ function loadStepContent() {
       break;
   }
 }
-
 function populateBrands() {
   const grid = document.getElementById("brandGrid");
   grid.innerHTML = "";
+  document.getElementById("customBrandContainer").classList.add("hidden"); // Reset custom input
+
   Object.keys(vehicleData).forEach((brand) => {
     const div = document.createElement("div");
     div.className =
       "option-card cursor-pointer bg-white border border-brand-primary/10 rounded-xl p-4 text-center hover:border-brand-primary/30 flex flex-col items-center justify-center gap-2";
     div.onclick = function () {
+      document.getElementById("customBrandContainer").classList.add("hidden");
       selectOption("brand", brand, 1, this);
     };
 
-    // Generic text logo representation
     div.innerHTML = `
             <div class="w-12 h-12 rounded-full bg-brand-bg flex items-center justify-center font-black text-brand-primary text-sm uppercase tracking-tighter">
                 ${brand.substring(0, 3)}
@@ -191,11 +192,33 @@ function populateBrands() {
         `;
     grid.appendChild(div);
   });
+  const otherDiv = document.createElement("div");
+  otherDiv.className =
+    "option-card cursor-pointer bg-white border border-brand-primary/10 rounded-xl p-4 text-center hover:border-brand-primary/30 flex flex-col items-center justify-center gap-2";
+  otherDiv.onclick = function () {
+    grid
+      .querySelectorAll(".option-card")
+      .forEach((opt) => opt.classList.remove("selected"));
+    this.classList.add("selected");
+    document.getElementById("customBrandContainer").classList.remove("hidden");
+    document.getElementById("customBrandInput").value = "";
+    document.getElementById("customBrandInput").focus();
+  };
+  otherDiv.innerHTML = `
+      <div class="w-12 h-12 rounded-full bg-brand-bg flex items-center justify-center text-brand-primary">
+          <i data-lucide="plus" class="w-6 h-6"></i>
+      </div>
+      <span class="font-bold text-sm text-brand-primary">Others</span>
+  `;
+  grid.appendChild(otherDiv);
+  lucide.createIcons(); // Render the plus icon
 }
 
 function populateModels() {
   const grid = document.getElementById("modelList");
   grid.innerHTML = "";
+  document.getElementById("customModelContainer").classList.add("hidden"); // Reset custom input
+
   const models = vehicleData[formData.brand] || [];
 
   models.forEach((model) => {
@@ -204,20 +227,60 @@ function populateModels() {
       "option-card model-item cursor-pointer bg-white border border-brand-primary/10 rounded-xl p-4 hover:border-brand-primary/30 font-semibold text-brand-primary transition-colors";
     div.textContent = model;
     div.onclick = function () {
+      document.getElementById("customModelContainer").classList.add("hidden");
       selectOption("model", model, 3, this);
     };
     grid.appendChild(div);
   });
+
+  // Add "Others" Option
+  const otherDiv = document.createElement("div");
+  otherDiv.className =
+    "option-card model-item cursor-pointer bg-brand-bg/50 border border-brand-primary/10 rounded-xl p-4 hover:border-brand-primary/30 font-semibold text-brand-primary transition-colors flex items-center gap-2";
+  otherDiv.onclick = function () {
+    grid
+      .querySelectorAll(".option-card")
+      .forEach((opt) => opt.classList.remove("selected"));
+    this.classList.add("selected");
+    document.getElementById("customModelContainer").classList.remove("hidden");
+    document.getElementById("customModelInput").value = "";
+    document.getElementById("customModelInput").focus();
+  };
+  otherDiv.innerHTML = `<i data-lucide="plus" class="w-4 h-4"></i> Others`;
+  grid.appendChild(otherDiv);
+  lucide.createIcons();
+
   document.getElementById("modelSearch").value = "";
 }
 
 function filterModels() {
   const term = document.getElementById("modelSearch").value.toLowerCase();
   document.querySelectorAll(".model-item").forEach((item) => {
-    item.style.display = item.textContent.toLowerCase().includes(term)
-      ? "block"
-      : "none";
+    // Always show 'Others' or if the text matches
+    if (item.textContent.toLowerCase().includes("others")) {
+      item.style.display = "flex";
+    } else {
+      item.style.display = item.textContent.toLowerCase().includes(term)
+        ? "block"
+        : "none";
+    }
   });
+}
+
+function submitCustomOption(type, stepNumber) {
+  let inputVal = "";
+  if (type === "brand") {
+    inputVal = document.getElementById("customBrandInput").value.trim();
+  } else if (type === "model") {
+    inputVal = document.getElementById("customModelInput").value.trim();
+  }
+
+  if (inputVal) {
+    formData[type] = inputVal;
+    nextStep(stepNumber);
+  } else {
+    alert(`Please enter a ${type} name.`);
+  }
 }
 
 function populateYears() {
@@ -225,7 +288,7 @@ function populateYears() {
   if (grid.children.length > 0) return; // already loaded
 
   const currentYear = new Date().getFullYear();
-  for (let y = currentYear; y >= currentYear - 15; y--) {
+  for (let y = currentYear; y >= currentYear - 25; y--) {
     const div = document.createElement("div");
     div.className =
       "option-card cursor-pointer bg-white border border-brand-primary/10 rounded-xl py-3 text-center hover:border-brand-primary/30 font-bold text-brand-primary";
@@ -262,6 +325,12 @@ function populateColors() {
 // --- Step 6: Purchase Check ---
 function initPurchaseWatchers() {
   const btn = document.getElementById("purchase-btn");
+  const purchaseDate = document.getElementById("purchaseYear");
+  const today = new Date();
+  const localDate = new Date( today.getTime() - today.getTimezoneOffset() * 60000)
+  .toISOString().split("T")[0];
+  purchaseDate.max = localDate;
+
   const check = () => {
     const y = document.getElementById("purchaseYear").value;
     const a = document.getElementById("purchaseAmount").value;
@@ -344,24 +413,23 @@ function initInspectionWatchers() {
   tomorrow.setDate(tomorrow.getDate() + 1);
   dateInput.min = tomorrow.toISOString().split("T")[0];
 
-  // Mock Data fetching logic (Replaces actual fetch for UI preview)
+  // Fetch actual branches from API if not already populated
   if (locInput.options.length <= 1) {
-    const mockBranches = [
-      { branchId: "1", branchArea: "Indiranagar Hub" },
-      { branchId: "2", branchArea: "Koramangala Hub" },
-      { branchId: "3", branchArea: "Whitefield Center" },
-    ];
-    mockBranches.forEach((b) => {
-      locInput.innerHTML += `<option value="${b.branchId}">${b.branchArea}</option>`;
-    });
-
-    /* // Original Fetch Logic kept for backend integration
-        fetch("/api/branch/website/getBranches")
-            .then(r => r.json())
-            .then(data => {
-                data.forEach(b => locInput.innerHTML += `<option value="${b.branchId}">${b.branchArea}</option>`);
-            });
-        */
+    fetch("http://localhost:8080/branch/website/getBranches")
+      .then((response) => response.json())
+      .then((data) => {
+        data.forEach((branch) => {
+          const option = document.createElement("option");
+          option.value = branch.branchId;
+          option.textContent = branch.branchArea;
+          locInput.appendChild(option);
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching locations:", error);
+        locInput.innerHTML =
+          '<option value="">Error loading locations</option>';
+      });
   }
 
   const check = () => {
@@ -408,45 +476,113 @@ function initContactWatchers() {
 }
 
 function submitForm() {
+  // Validate required fields
+  if (!formData.fullName || !formData.mobileNumber || !formData.emailAddress) {
+    alert("Please fill in all required fields");
+    return;
+  }
+
+  // UI Loading state
   const btn = document.getElementById("contact-btn");
   const text = document.getElementById("submit-text");
   const icon = document.getElementById("submit-icon");
   const loader = document.getElementById("submit-loader");
 
-  // UI Loading state
   text.textContent = "Uploading Details...";
   icon.classList.add("hidden");
   loader.classList.remove("hidden");
   btn.classList.add("opacity-80", "cursor-not-allowed");
 
-  // Log output to demonstrate logic
-  console.log("Form Data Prepared:", formData);
+  let formPayload = new FormData();
 
-  // Simulate API Call delay
-  setTimeout(() => {
-    text.textContent = "Success!";
-    loader.classList.add("hidden");
-    btn.classList.remove("bg-brand-primary");
-    btn.classList.add("bg-green-600");
-    icon.classList.remove("hidden");
-    lucide.createIcons();
+  // --- Vehicle JSON ---
+  const vehicleDataPayload = {
+    vehicleBrand: formData.brand,
+    vehicleModel: formData.model,
+    vehicleModelYear: formData.year,
+    vehicleColour: formData.color,
+    vehiclePurchasedDate: formData.purchaseDate,
+    vehiclePurchasedAmount: formData.purchaseAmount,
+    vehicleOwnerType: formData.owner,
+    vehicleRegisterNumber: formData.registrationNumber,
+    vehicleInspectionBranch: formData.inspectionLocation,
+    vehicleInspectionDate: formData.inspectionDate,
+    vehicleType: formData.vehicleType,
+    branchId: formData.branchId,
+  };
 
-    setTimeout(() => {
-      alert(
-        "Thank you! Your vehicle details have been submitted successfully. Our team will contact you soon.",
+  // --- User JSON ---
+  const userData = {
+    userName: formData.fullName,
+    userPhoneNo: formData.mobileNumber,
+    userEmail: formData.emailAddress,
+    userRole: "USER",
+  };
+
+  // Append vehicle and user as separate blobs
+  formPayload.append(
+    "vehicle",
+    new Blob([JSON.stringify(vehicleDataPayload)], {
+      type: "application/json",
+    }),
+  );
+
+  formPayload.append(
+    "user",
+    new Blob([JSON.stringify(userData)], { type: "application/json" }),
+  );
+
+  // Append files
+  for (let file of formData.vehicleImages || []) {
+    formPayload.append("documents", file);
+  }
+
+  formPayload.append(
+    "inspection",
+    new Blob([JSON.stringify({})], { type: "application/json" }),
+  );
+
+  // Send request
+  fetch("http://localhost:8080/vehicle/addVehicle", {
+    method: "POST",
+    body: formPayload,
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Error adding vehicle");
+      }
+
+      // Update UI to success state
+      text.textContent = "Success!";
+      loader.classList.add("hidden");
+      btn.classList.remove(
+        "bg-brand-primary",
+        "opacity-80",
+        "cursor-not-allowed",
       );
-      window.location.reload();
-    }, 500);
+      btn.classList.add("bg-green-600");
+      icon.classList.remove("hidden");
+      lucide.createIcons();
 
-    /*
-        // Original Fetch Payload Logic
-        let formPayload = new FormData();
-        formPayload.append("vehicle", new Blob([JSON.stringify({
-            vehicleBrand: formData.brand, vehicleModel: formData.model,
-            // ... other mappings
-        })], { type: "application/json" }));
-        
-        fetch("/api/vehicle/addVehicle", { method: "POST", body: formPayload }).then(...)
-        */
-  }, 2000);
+      setTimeout(() => {
+        alert(
+          "Thank you! Your vehicle details have been submitted successfully. Our team will contact you soon.",
+        );
+        window.location.reload();
+      }, 500);
+
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+      alert("There was an error submitting your details. Please try again.");
+
+      // Reset UI on failure
+      text.textContent = "Submit Details";
+      loader.classList.add("hidden");
+      btn.classList.remove("opacity-80", "cursor-not-allowed");
+    });
 }

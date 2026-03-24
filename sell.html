@@ -240,6 +240,15 @@
             >
               <!-- Populated by JS -->
             </div>
+
+            <div id="customBrandContainer" class="hidden mt-6 max-w-md mx-auto animate-fade-in-up">
+                <label class="block text-sm font-semibold text-brand-primary mb-2">Enter Brand Name</label>
+                <div class="flex gap-2">
+                    <input type="text" id="customBrandInput" placeholder="e.g., Aprilia" class="flex-1 px-4 py-3 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary bg-brand-bg/30" />
+                    <button onclick="submitCustomOption('brand', 1)" class="bg-brand-primary text-white px-6 rounded-xl font-bold hover:bg-brand-primaryHover transition-colors">Next</button>
+                </div>
+            </div>
+
           </div>
 
           <!-- Step 2: Vehicle Type -->
@@ -299,6 +308,13 @@
               id="modelList"
             >
               <!-- Populated by JS -->
+            </div>
+            <div id="customModelContainer" class="hidden mt-6 max-w-md mx-auto animate-fade-in-up">
+                <label class="block text-sm font-semibold text-brand-primary mb-2">Enter Model Name</label>
+                <div class="flex gap-2">
+                    <input type="text" id="customModelInput" placeholder="e.g., SR 150" class="flex-1 px-4 py-3 rounded-xl border-2 border-brand-primary/10 focus:border-brand-primary focus:ring-0 outline-none text-brand-primary bg-brand-bg/30" />
+                    <button onclick="submitCustomOption('model', 3)" class="bg-brand-primary text-white px-6 rounded-xl font-bold hover:bg-brand-primaryHover transition-colors">Next</button>
+                </div>
             </div>
           </div>
 
@@ -731,6 +747,6 @@
     <script>
       lucide.createIcons();
     </script>
-    <script src="./js/buy.js"></script>
+    <script src="./js/sell.js"></script>
   </body>
 </html>
