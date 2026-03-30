@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buy Refurbished Bikes | ReRide Bengaluru</title>
 
-    <link rel="stylesheet" href="./input.css" />
 
     <link rel="stylesheet" href="./output.css" />
     <link rel="stylesheet" href="./css/style.css" />
@@ -133,7 +132,12 @@
                 class="absolute left-3 top-3.5 w-5 h-5 text-brand-gray"
               ></i>
             </div>
-            <button id="search-btn" class="bg-brand-primary text-white px-4 rounded-xl">Search</button>
+            <button
+              id="search-btn"
+              class="bg-brand-primary text-white px-4 rounded-xl"
+            >
+              Search
+            </button>
           </div>
         </div>
       </div>
@@ -141,11 +145,11 @@
 
     <!-- 3. Main Layout -->
     <div class="mx-auto">
-      <div class="flex flex-col lg:flex-row gap-8">
+      <div class="flex flex-col lg:flex-row gap-4">
         <!-- Mobile Filter Toggle -->
         <button
           onclick="toggleFilters()"
-          class="lg:hidden w-full flex items-center justify-center gap-2 bg-white border border-brand-primary/20 py-3 rounded-xl font-bold text-brand-primary shadow-sm"
+          class="lg:hidden w-full flex mt-2 items-center justify-center gap-2 bg-white border border-brand-primary/20 py-3 rounded-xl font-bold text-brand-primary shadow-sm"
         >
           <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
           Filters & Sort
@@ -154,10 +158,11 @@
         <!-- LEFT SIDEBAR: Filters -->
         <aside
           id="filter-sidebar"
-          class="hidden lg:block w-full lg:w-72 shrink-0"
+          class="hidden lg:block w-full lg:w-72 shrink-0 "
         >
+
           <div
-            class="bg-white shadow-sm border border-brand-primary/5 p-6 sticky top-20 max-h-[calc(100vh-5rem)] overflow-y-auto custom-scrollbar"
+            class="bg-white shadow-sm border border-brand-primary/5 p-6 sticky top-12  max-h-[calc(100vh-1rem)] overflow-y-auto custom-scrollbar"
           >
             <div class="flex justify-between items-center mb-6">
               <h3 class="text-lg font-bold text-brand-primary">Filters</h3>
@@ -169,7 +174,7 @@
             </div>
 
             <!-- Filter Group: Search Type / Category -->
-            <div class="mb-8">
+            <div class="mb-4">
               <h4
                 class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
               >
@@ -179,7 +184,8 @@
                 <label class="flex items-center gap-3 cursor-pointer group">
                   <input
                     type="checkbox"
-                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox transition-all"
+                    value="bike"
+                    class="filter-input type-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox transition-all"
                   />
                   <span
                     class="text-brand-gray group-hover:text-brand-primary transition-colors"
@@ -189,53 +195,41 @@
                 <label class="flex items-center gap-3 cursor-pointer group">
                   <input
                     type="checkbox"
-                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox transition-all"
+                    value="Scooter"
+                    class="filter-input type-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox transition-all"
                   />
                   <span
                     class="text-brand-gray group-hover:text-brand-primary transition-colors"
                     >Scooters</span
                   >
                 </label>
-                <label class="flex items-center gap-3 cursor-pointer group">
+                <!-- <label class="flex items-center gap-3 cursor-pointer group">
                   <input
                     type="checkbox"
-                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox transition-all"
+                    value="Electric"
+                    class="filter-input type-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox transition-all"
                   />
                   <span
                     class="text-brand-gray group-hover:text-brand-primary transition-colors"
                     >Electric</span
-                  >
+                  > -->
                 </label>
               </div>
             </div>
 
-            <!-- Filter Group: Price -->
-            <div class="mb-8 border-t border-gray-100 pt-6">
+            <div class="mb-4 border-t border-gray-100 pt-6">
               <h4
                 class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-4"
               >
                 Price Range
               </h4>
-              <div class="flex gap-2 mb-4">
-                <input
-                  type="text"
-                  placeholder="Min"
-                  class="w-1/2 p-2 text-sm border rounded-lg bg-gray-50 text-center"
-                  value="₹20k"
-                />
-                <input
-                  type="text"
-                  placeholder="Max"
-                  class="w-1/2 p-2 text-sm border rounded-lg bg-gray-50 text-center"
-                  value="₹3L"
-                />
-              </div>
               <div class="space-y-2">
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input
                     type="radio"
                     name="price"
-                    class="text-brand-primary focus:ring-brand-primary"
+                    value="0-50000"
+                    class="filter-input price-filter text-brand-primary focus:ring-brand-primary"
                   />
                   <span class="text-sm text-brand-gray">Under ₹50,000</span>
                 </label>
@@ -243,7 +237,8 @@
                   <input
                     type="radio"
                     name="price"
-                    class="text-brand-primary focus:ring-brand-primary"
+                    value="50000-100000"
+                    class="filter-input price-filter text-brand-primary focus:ring-brand-primary"
                   />
                   <span class="text-sm text-brand-gray">₹50,000 - ₹1 Lakh</span>
                 </label>
@@ -251,15 +246,27 @@
                   <input
                     type="radio"
                     name="price"
-                    class="text-brand-primary focus:ring-brand-primary"
+                    value="100000-9999999"
+                    class="filter-input price-filter text-brand-primary focus:ring-brand-primary"
                   />
                   <span class="text-sm text-brand-gray">Above ₹1 Lakh</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer mt-2">
+                  <input
+                    type="radio"
+                    name="price"
+                    value=""
+                    class="filter-input price-filter text-brand-primary focus:ring-brand-primary"
+                    checked
+                  />
+                  <span class="text-sm font-semibold text-brand-primary"
+                    >Any Price</span
+                  >
                 </label>
               </div>
             </div>
 
-            <!-- Filter Group: Brand -->
-            <div class="mb-8 border-t border-gray-100 pt-6">
+            <div class="mb-4 border-t border-gray-100 pt-6">
               <h4
                 class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
               >
@@ -269,75 +276,60 @@
                 <label class="flex items-center gap-3 cursor-pointer">
                   <input
                     type="checkbox"
-                    checked
-                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
+                    value="Royal Enfield"
+                    class="filter-input brand-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
                   />
-                  <span class="text-brand-gray"
-                    >Royal Enfield
-                    <span class="text-xs text-gray-400">(45)</span></span
-                  >
+                  <span class="text-brand-gray">Royal Enfield</span>
                 </label>
                 <label class="flex items-center gap-3 cursor-pointer">
                   <input
                     type="checkbox"
-                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
+                    value="Honda"
+                    class="filter-input brand-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
                   />
-                  <span class="text-brand-gray"
-                    >Honda <span class="text-xs text-gray-400">(32)</span></span
-                  >
+                  <span class="text-brand-gray">Honda</span>
                 </label>
                 <label class="flex items-center gap-3 cursor-pointer">
                   <input
                     type="checkbox"
-                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
+                    value="TVS"
+                    class="filter-input brand-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
                   />
-                  <span class="text-brand-gray"
-                    >TVS <span class="text-xs text-gray-400">(28)</span></span
-                  >
+                  <span class="text-brand-gray">TVS</span>
                 </label>
                 <label class="flex items-center gap-3 cursor-pointer">
                   <input
                     type="checkbox"
-                    class="w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
+                    value="KTM"
+                    class="filter-input brand-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox"
                   />
-                  <span class="text-brand-gray"
-                    >KTM <span class="text-xs text-gray-400">(15)</span></span
-                  >
+                  <span class="text-brand-gray">KTM</span>
                 </label>
               </div>
             </div>
 
-            <!-- Filter Group: Year -->
             <div class="mb-8 border-t border-gray-100 pt-6">
-              <h4
-                class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
-              >
-                Model Year
-              </h4>
-              <div class="flex flex-wrap gap-2">
-                <button
-                  class="px-3 py-1 text-xs font-semibold rounded-full bg-brand-primary text-white border border-brand-primary"
-                >
-                  2023+
-                </button>
-                <button
-                  class="px-3 py-1 text-xs font-semibold rounded-full bg-white text-brand-gray border border-gray-200 hover:border-brand-primary"
-                >
-                  2021-2022
-                </button>
-                <button
-                  class="px-3 py-1 text-xs font-semibold rounded-full bg-white text-brand-gray border border-gray-200 hover:border-brand-primary"
-                >
-                  Old is Gold
-                </button>
+              <h4 class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3">Model Year</h4>
+              <div class="space-y-2">
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" value="2025" class="filter-input year-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox" />
+                  <span class="text-brand-gray">2025 </span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" value="2023" class="filter-input year-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox" />
+                  <span class="text-brand-gray">2023 </span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" value="2021" class="filter-input year-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox" />
+                  <span class="text-brand-gray">2021</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" value="2020" class="filter-input year-filter w-5 h-5 rounded border-gray-300 text-brand-primary focus:ring-brand-primary custom-checkbox" />
+                  <span class="text-brand-gray">2019</span>
+                </label>
               </div>
             </div>
 
-            <button
-              class="w-full bg-brand-primary text-white font-bold py-3 rounded-xl hover:bg-brand-primary-hover transition-colors cursor-pointer"
-            >
-              Apply Filters
-            </button>
           </div>
         </aside>
 
@@ -346,7 +338,10 @@
           <!-- Sorting & Quick Filters -->
           <div class="flex justify-between items-center mb-6">
             <p class="text-sm text-brand-gray">
-              <span id="vehicle-count" class="font-bold text-brand-primary">0</span> bikes found
+              <span id="vehicle-count" class="font-bold text-brand-primary"
+                >0</span
+              >
+              bikes found
             </p>
             <div class="flex items-center gap-2">
               <span class="text-sm text-brand-gray hidden sm:inline"
@@ -354,35 +349,42 @@
               >
               <select
                 class="bg-white border border-gray-200 text-brand-primary text-sm font-semibold rounded-lg p-2.5 focus:ring-brand-primary focus:border-brand-primary outline-none cursor-pointer"
+                id="sort-select"
               >
-                <option>Relevance</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-                <option>Newest First</option>
-                <option>Mileage: High to Low</option>
+                <option value="relevance">Relevance</option>
+                <option value="price_asc">Price: Low to High</option>
+                <option value="price_desc">Price: High to Low</option>
+                <option value="mileage_desc">Mileage: High to Low</option>
               </select>
             </div>
           </div>
 
           <!-- Product Grid -->
-          <div id="vehicle-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-          </div>
+          <div
+            id="vehicle-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          ></div>
 
           <!-- Load More -->
-          <div class="mt-12 text-center">
+          <!-- <div class="mt-12 text-center">
             <button
               class="bg-white border-2 border-brand-primary/20 text-brand-primary font-bold py-3 px-8 rounded-xl hover:bg-brand-primary hover:text-white transition-all shadow-sm cursor-pointer"
             >
               Load More Vehicles
             </button>
-          </div>
+          </div> -->
+
+          <!-- Pagination -->
+          <div
+            id="pagination-controls"
+            class="mt-12 flex justify-center items-center gap-2"
+          ></div>
         </main>
       </div>
     </div>
 
     <!-- 4. Footer -->
-        <footer
+    <footer
       class="bg-brand-primary text-blue-200 py-12 px-4 border-t border-white/10"
     >
       <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 mb-8">
@@ -391,7 +393,11 @@
             href="#"
             class="text-2xl font-bold text-white flex items-center gap-2 mb-4"
           >
-            <img src="./images/Logo/logo white.png" alt="logo" class="w-50 h-auto object-contain" />
+            <img
+              src="./images/Logo/logo white.png"
+              alt="logo"
+              class="w-50 h-auto object-contain"
+            />
           </a>
           <p class="text-sm">Trusted by thousands of riders in Bengaluru.</p>
           <p class="text-sm">
@@ -413,9 +419,7 @@
               >
             </li>
             <li>
-              <a
-                href="./about.html"
-                class="hover:text-white transition-colors"
+              <a href="./about.html" class="hover:text-white transition-colors"
                 >About us</a
               >
             </li>
@@ -437,10 +441,17 @@
           <p class="text-sm mb-2">Jalhalli, Bengaluru, KA 560057</p>
           <p class="text-sm mb-4">info@reride.com</p>
           <div class="flex gap-4">
-            <a href="https://www.instagram.com/reride_bengaluru?igsh=MTJycDFvZjFmdHpuaA%3D%3D&utm_source=qr" target="_blank class="hover:text-white transition-colors"
+            <a
+              href="https://www.instagram.com/reride_bengaluru?igsh=MTJycDFvZjFmdHpuaA%3D%3D&utm_source=qr"
+              target="_blank class="
+              hover:text-white
+              transition-colors
               ><i data-lucide="instagram" class="w-5 h-5"></i
             ></a>
-            <a href="https://www.linkedin.com/company/re-ride-official/" target="_blank" class="hover:text-white transition-colors"
+            <a
+              href="https://www.linkedin.com/company/re-ride-official/"
+              target="_blank"
+              class="hover:text-white transition-colors"
               ><i data-lucide="linkedin" class="w-5 h-5"></i
             ></a>
           </div>
@@ -452,7 +463,9 @@
         &copy; 2026 ReRide.
         <!-- Made with <i data-lucide="heart" class="w-3 h-3 inline text-red-500"></i> in Bengaluru. -->
         design and developed by
-        <a href="https://www.thincnext.com/" class="hover:text-white">thincnext</a>
+        <a href="https://www.thincnext.com/" class="hover:text-white"
+          >thincnext</a
+        >
       </div>
     </footer>
 
@@ -475,9 +488,8 @@
             <i data-lucide="x" class="w-6 h-6"></i>
           </button>
         </div>
-        <!-- Duplicate Filter Content for Mobile (Simulated logic for prototype) -->
+
         <div class="space-y-6">
-          <!-- Mobile Search Type -->
           <div>
             <h4
               class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
@@ -488,49 +500,148 @@
               <label class="flex items-center gap-3">
                 <input
                   type="checkbox"
-                  class="w-5 h-5 rounded border-gray-300 custom-checkbox"
+                  value="Motorcycle"
+                  class="filter-input type-filter w-5 h-5 rounded border-gray-300 custom-checkbox"
                 />
                 <span class="text-brand-gray">Motorcycles</span>
               </label>
               <label class="flex items-center gap-3">
                 <input
                   type="checkbox"
-                  class="w-5 h-5 rounded border-gray-300 custom-checkbox"
+                  value="Scooter"
+                  class="filter-input type-filter w-5 h-5 rounded border-gray-300 custom-checkbox"
                 />
                 <span class="text-brand-gray">Scooters</span>
               </label>
+              <label class="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  value="Electric"
+                  class="filter-input type-filter w-5 h-5 rounded border-gray-300 custom-checkbox"
+                />
+                <span class="text-brand-gray">Electric</span>
+              </label>
             </div>
           </div>
-          <!-- Mobile Price -->
+
           <div class="border-t pt-4">
             <h4
               class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
             >
               Price
             </h4>
-            <label class="flex items-center gap-2 mb-2">
-              <input
-                type="radio"
-                name="mobile-price"
-                class="text-brand-primary"
-              />
-              <span class="text-sm text-brand-gray">Under ₹50,000</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <input
-                type="radio"
-                name="mobile-price"
-                class="text-brand-primary"
-              />
-              <span class="text-sm text-brand-gray">₹50,000+</span>
-            </label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="price"
+                  value="0-50000"
+                  class="filter-input price-filter text-brand-primary"
+                />
+                <span class="text-sm text-brand-gray">Under ₹50,000</span>
+              </label>
+              <label class="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="price"
+                  value="50000-100000"
+                  class="filter-input price-filter text-brand-primary"
+                />
+                <span class="text-sm text-brand-gray">₹50,000 - ₹1 Lakh</span>
+              </label>
+              <label class="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="price"
+                  value="100000-9999999"
+                  class="filter-input price-filter text-brand-primary"
+                />
+                <span class="text-sm text-brand-gray">Above ₹1 Lakh</span>
+              </label>
+              <label class="flex items-center gap-2 mt-2">
+                <input
+                  type="radio"
+                  name="price"
+                  value=""
+                  class="filter-input price-filter text-brand-primary"
+                  checked
+                />
+                <span class="text-sm font-semibold text-brand-primary"
+                  >Any Price</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="border-t pt-4">
+            <h4
+              class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3"
+            >
+              Brand
+            </h4>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  value="Royal Enfield"
+                  class="filter-input brand-filter w-5 h-5 rounded border-gray-300 custom-checkbox"
+                />
+                <span class="text-brand-gray">Royal Enfield</span>
+              </label>
+              <label class="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  value="Honda"
+                  class="filter-input brand-filter w-5 h-5 rounded border-gray-300 custom-checkbox"
+                />
+                <span class="text-brand-gray">Honda</span>
+              </label>
+              <label class="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  value="TVS"
+                  class="filter-input brand-filter w-5 h-5 rounded border-gray-300 custom-checkbox"
+                />
+                <span class="text-brand-gray">TVS</span>
+              </label>
+              <label class="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  value="KTM"
+                  class="filter-input brand-filter w-5 h-5 rounded border-gray-300 custom-checkbox"
+                />
+                <span class="text-brand-gray">KTM</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="border-t pt-4">
+            <h4 class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-3">Model Year</h4>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3">
+                <input type="checkbox" value="2025" class="filter-input year-filter w-5 h-5 rounded border-gray-300 custom-checkbox" />
+                <span class="text-brand-gray">2025</span>
+              </label>
+              <label class="flex items-center gap-3">
+                <input type="checkbox" value="2023" class="filter-input year-filter w-5 h-5 rounded border-gray-300 custom-checkbox" />
+                <span class="text-brand-gray">2023</span>
+              </label>
+              <label class="flex items-center gap-3">
+                <input type="checkbox" value="2021" class="filter-input year-filter w-5 h-5 rounded border-gray-300 custom-checkbox" />
+                <span class="text-brand-gray">2021 </span>
+              </label>
+              <label class="flex items-center gap-3">
+                <input type="checkbox" value="2021" class="filter-input year-filter w-5 h-5 rounded border-gray-300 custom-checkbox" />
+                <span class="text-brand-gray">2021</span>
+              </label>
+            </div>
           </div>
 
           <button
             class="w-full bg-brand-primary text-white font-bold py-3 rounded-xl mt-4"
             onclick="toggleFilters()"
           >
-            Apply Filters
+            View Results
           </button>
         </div>
       </div>
@@ -538,7 +649,6 @@
 
     <script src="./js/nav.js"></script>
 
-    
     <script>
       lucide.createIcons();
 
@@ -559,91 +669,181 @@
     </script>
 
     <script>
-  // Initialize icons
-  lucide.createIcons();
+      // Initialize icons
+      lucide.createIcons();
 
-  // API Endpoints
-  const API_ALL_VEHICLES = 'http://localhost:8080/vehicle/website/getVehicles';
-  const API_SEARCH_VEHICLES = 'http://localhost:8080/vehicle/website/getVehicles/search';
+      // API Endpoints
+      const API_ALL_VEHICLES =
+        "http://localhost:8080/vehicle/website/getVehicles";
+      const API_SEARCH_VEHICLES =
+        "http://localhost:8080/vehicle/website/getVehicles/search";
 
-  // DOM Elements
-  const vehicleGrid = document.getElementById('vehicle-grid');
-  const vehicleCount = document.getElementById('vehicle-count');
-  const searchInput = document.getElementById('search-input');
-  const searchBtn = document.getElementById('search-btn');
+      // DOM Elements
+      const vehicleGrid = document.getElementById("vehicle-grid");
+      const vehicleCount = document.getElementById("vehicle-count");
+      const searchInput = document.getElementById("search-input");
+      const searchBtn = document.getElementById("search-btn");
+      const sortSelect = document.getElementById("sort-select");
+      const paginationControls = document.getElementById("pagination-controls");
 
-  // Load initial data on page load
-  document.addEventListener('DOMContentLoaded', () => {
-    fetchVehicles();
-  });
+      // State variables
+      let currentVehiclesList = []; // Holds the filtered and sorted list
+      let currentPage = 1;
+      const ITEMS_PER_PAGE = 18;
 
-  // Fetch all vehicles
-  async function fetchVehicles() {
-    try {
-      const response = await fetch(API_ALL_VEHICLES);
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
-      renderVehicles(data);
-    } catch (error) {
-      console.error('Error fetching vehicles:', error);
-      vehicleGrid.innerHTML = '<p class="text-red-500 col-span-3 text-center">Failed to load vehicles. Please ensure the server is running.</p>';
-    }
-  }
-
-  // Fetch vehicles with search/filter parameters
-  async function searchVehicles(params = {}) {
-    try {
-      // Build the query string
-      const url = new URL(API_SEARCH_VEHICLES);
-      Object.keys(params).forEach(key => {
-        if (params[key]) {
-          url.searchParams.append(key, params[key]);
-        }
+      // Load initial data on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchFilteredVehicles(); // Start by fetching everything
       });
 
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
-      renderVehicles(data);
-    } catch (error) {
-      console.error('Error searching vehicles:', error);
-      vehicleGrid.innerHTML = '<p class="text-red-500 col-span-3 text-center">Error fetching search results.</p>';
-    }
-  }
+      // --- 1. Event Listeners ---
 
-  // Handle Top Search Bar
-  searchBtn.addEventListener('click', () => {
-    const searchTerm = searchInput.value.trim();
-    // Assuming search bar queries the model name
-    searchVehicles({ vehicleModel: searchTerm }); 
-  });
+      // Search only applies when the button is clicked
+      searchBtn.addEventListener("click", () => {
+        fetchFilteredVehicles();
+      });
 
-  // Render the data into HTML
-  function renderVehicles(vehicles) {
-    vehicleGrid.innerHTML = ''; // Clear current grid
-    vehicleCount.textContent = vehicles.length; // Update count
+      // Filters apply immediately on change
+      document.querySelectorAll(".filter-input").forEach((input) => {
+        input.addEventListener("change", () => {
+          fetchFilteredVehicles();
+        });
+      });
 
-    if (vehicles.length === 0) {
-        vehicleGrid.innerHTML = '<p class="text-gray-500 col-span-3 text-center py-12">No vehicles found matching your criteria.</p>';
-        return;
-    }
+      // Sorting applies immediately
+      sortSelect.addEventListener("change", () => {
+        applySorting();
+        currentPage = 1;
+        renderPage();
+      });
 
-    vehicles.forEach(vehicle => {
-      // Map your DTO fields here. Adjust variable names to match your backend exactly.
-      const id = vehicle.vehicleId;
-      const brand = vehicle.vehicleBrand || 'Unknown Brand';
-      const model = vehicle.vehicleModel || 'Unknown Model';
-      const price = vehicle.vehicleOutLetPrice || 'N/A';
-      const year = vehicle.vehicleModelYear || 'N/A';
-      const mileage = vehicle.vehicleMileage || 'N/A';
-      const type = vehicle.vehicleType || 'N/A';
-      
-      //image 
-      const parsedImage = JSON.parse(vehicle.vehicleImage);
-      const imageName = parsedImage[0];
-      const imageUrl = `http://localhost:8080/uploads/${imageName}`
+      // --- 2. Data Fetching & Processing ---
 
-      const cardHTML = `
+      async function fetchFilteredVehicles() {
+        try {
+          const url = new URL(API_SEARCH_VEHICLES);
+
+          // 1. Get Search Term
+          const searchTerm = searchInput.value.trim();
+          if (searchTerm) url.searchParams.append("vehicleModel", searchTerm);
+
+          // 2. Get Selected Brands (Using Set to prevent duplicates between desktop and mobile menus)
+          const selectedBrands = [
+            ...new Set(
+              Array.from(
+                document.querySelectorAll(".brand-filter:checked"),
+              ).map((cb) => cb.value),
+            ),
+          ];
+          if (selectedBrands.length > 0)
+            url.searchParams.append("vehicleBrand", selectedBrands.join(","));
+
+          // 3. Get Selected Types (Using Set to prevent duplicates)
+          const selectedTypes = [
+            ...new Set(
+              Array.from(document.querySelectorAll(".type-filter:checked")).map(
+                (cb) => cb.value,
+              ),
+            ),
+          ];
+          if (selectedTypes.length > 0) url.searchParams.append("vehicleType", selectedTypes.join(","));
+
+            // 4. Get Selected Years (Now passed directly to your API)
+      const selectedYears = [...new Set(Array.from(document.querySelectorAll('.year-filter:checked')).map(cb => cb.value))];
+      if (selectedYears.length > 0) url.searchParams.append('vehicleModelYear', selectedYears.join(','));
+
+          // Include sorting params for the backend (so you can use it later when implemented in Spring Boot)
+          url.searchParams.append("sortBy", sortSelect.value);
+
+          const response = await fetch(url);
+          if (!response.ok) throw new Error("Network response was not ok");
+          let data = await response.json();
+
+          // --- Client-Side filtering for things the API endpoint doesn't support yet ---
+
+          
+
+          // Filter by Price Range
+          const selectedPrice = document.querySelector(
+            ".price-filter:checked",
+          )?.value;
+          if (selectedPrice) {
+            const [min, max] = selectedPrice.split("-").map(Number);
+            data = data.filter((v) => {
+              const price = parseFloat(v.vehicleOutLetPrice);
+              return !isNaN(price) && price >= min && price <= max;
+            });
+          }
+
+          currentVehiclesList = data;
+          applySorting(); // Sort the data
+
+          // Reset to page 1 and render
+          currentPage = 1;
+          renderPage();
+        } catch (error) {
+          console.error("Error fetching vehicles:", error);
+          vehicleGrid.innerHTML =
+            '<p class="text-red-500 col-span-3 text-center py-12">Error loading vehicles. Please check server connection.</p>';
+        }
+      }
+
+      // --- 3. Sorting Logic ---
+      function applySorting() {
+        const sortValue = sortSelect.value;
+
+        currentVehiclesList.sort((a, b) => {
+          const priceA = parseFloat(a.vehicleOutLetPrice) || 0;
+          const priceB = parseFloat(b.vehicleOutLetPrice) || 0;
+
+          if (sortValue === "price_asc") return priceA - priceB;
+          if (sortValue === "price_desc") return priceB - priceA;
+          if (sortValue === 'mileage_desc') { 
+            return parseFloat(b.vehicleMileage) - parseFloat(a.vehicleMileage);
+          }
+          // 'relevance' keeps the original array order
+          return 0;
+        });
+      }
+
+      // --- 4. Pagination & Rendering ---
+
+      function renderPage() {
+        vehicleCount.textContent = currentVehiclesList.length;
+        vehicleGrid.innerHTML = "";
+
+        if (currentVehiclesList.length === 0) {
+          vehicleGrid.innerHTML =
+            '<p class="text-gray-500 col-span-3 text-center py-12">No vehicles found matching your criteria.</p>';
+          paginationControls.innerHTML = "";
+          return;
+        }
+
+        // Calculate Slice
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+        const paginatedItems = currentVehiclesList.slice(startIndex, endIndex);
+
+        // Render Cards
+        paginatedItems.forEach((vehicle) => {
+          const id = vehicle.vehicleId;
+          const brand = vehicle.vehicleBrand || "Unknown";
+          const model = vehicle.vehicleModel || "Unknown";
+          const price = vehicle.vehicleOutLetPrice || "N/A";
+          const year = vehicle.vehicleModelYear || "N/A";
+          const mileage = vehicle.vehicleMileage || "N/A";
+          const type = vehicle.vehicleType || "N/A";
+
+          let imageUrl = "./images/placeholder.png"; // Fallback
+          if (vehicle.vehicleImage) {
+            try {
+              const parsedImage = JSON.parse(vehicle.vehicleImage);
+              if (parsedImage.length > 0)
+                imageUrl = `http://localhost:8080/uploads/${parsedImage[0]}`;
+            } catch (e) {}
+          }
+
+          const cardHTML = `
         <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-primary/5 group relative">
           <div class="relative h-48 overflow-hidden">
             <span class="absolute top-3 right-3 bg-brand-primary text-white text-[10px] uppercase font-bold px-2 py-1 rounded-md z-10 tracking-wide">
@@ -675,26 +875,66 @@
           </div>
         </div>
       `;
-      vehicleGrid.insertAdjacentHTML('beforeend', cardHTML);
-    });
+          vehicleGrid.insertAdjacentHTML("beforeend", cardHTML);
+        });
 
-    // Re-initialize Lucide icons for the newly injected HTML
-    lucide.createIcons();
-  }
+        lucide.createIcons();
+        renderPaginationControls();
+      }
 
-  // Example: How to hook up the "Apply Filters" button
-  // 1. Give your Apply Filter button an id="apply-filters-btn"
-  // 2. Give your inputs class names or names to query them easily
-  /*
-  document.getElementById('apply-filters-btn').addEventListener('click', () => {
-     const filterParams = {
-        vehicleBrand: document.querySelector('input[name="brand"]:checked')?.value,
-        vehicleType: document.querySelector('input[name="type"]:checked')?.value,
-        // ... gather other inputs ...
-     };
-     searchVehicles(filterParams);
-  });
-  */
-</script>
+      function renderPaginationControls() {
+        const totalPages = Math.ceil(
+          currentVehiclesList.length / ITEMS_PER_PAGE,
+        );
+        paginationControls.innerHTML = "";
+
+        if (totalPages <= 1) return; // Don't show if there's only 1 page
+
+        // Prev Button
+        const prevBtn = document.createElement("button");
+        prevBtn.innerHTML =
+          '<i data-lucide="chevron-left" class="w-5 h-5"></i>';
+        prevBtn.className = `p-2 rounded-xl border ${currentPage === 1 ? "border-gray-200 text-gray-400 cursor-not-allowed" : "border-brand-primary/20 text-brand-primary hover:bg-brand-primary hover:text-white transition-colors cursor-pointer"}`;
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.onclick = () => {
+          if (currentPage > 1) {
+            currentPage--;
+            renderPage();
+            window.scrollTo(0, 0);
+          }
+        };
+        paginationControls.appendChild(prevBtn);
+
+        // Page Numbers
+        for (let i = 1; i <= totalPages; i++) {
+          const pageBtn = document.createElement("button");
+          pageBtn.textContent = i;
+          pageBtn.className = `w-10 h-10 rounded-xl font-bold transition-colors cursor-pointer ${currentPage === i ? "bg-brand-primary text-white" : "border border-brand-primary/20 text-brand-primary hover:bg-brand-primary hover:text-white"}`;
+          pageBtn.onclick = () => {
+            currentPage = i;
+            renderPage();
+            window.scrollTo(0, 0);
+          };
+          paginationControls.appendChild(pageBtn);
+        }
+
+        // Next Button
+        const nextBtn = document.createElement("button");
+        nextBtn.innerHTML =
+          '<i data-lucide="chevron-right" class="w-5 h-5"></i>';
+        nextBtn.className = `p-2 rounded-xl border ${currentPage === totalPages ? "border-gray-200 text-gray-400 cursor-not-allowed" : "border-brand-primary/20 text-brand-primary hover:bg-brand-primary hover:text-white transition-colors cursor-pointer"}`;
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.onclick = () => {
+          if (currentPage < totalPages) {
+            currentPage++;
+            renderPage();
+            window.scrollTo(0, 0);
+          }
+        };
+        paginationControls.appendChild(nextBtn);
+
+        lucide.createIcons();
+      }
+    </script>
   </body>
 </html>

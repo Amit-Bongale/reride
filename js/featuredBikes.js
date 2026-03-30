@@ -20,7 +20,7 @@ async function fetchFeaturedBikes() {
         return `
                 <div class="swiper-slide">
                     <div class="bg-white rounded-2xl overflow-hidden border border-brand-primary/5 group hover:shadow-xl transition-all duration-300">
-                        <div class="relative aspect-4/3 overflow-hidden">
+                        <div class="relative overflow-hidden">
                             <img src="${primaryImage}" alt="${bike.vehicleBrand} ${bike.vehicleModel}" class="w-full max-h-50 overflow-hidden  object-cover group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold text-white bg-brand-primary ">
                                 ReRide Certified
@@ -33,6 +33,7 @@ async function fetchFeaturedBikes() {
                             <div class="flex gap-4 mb-6 text-sm text-brand-gray">
                                 <span class="flex items-center gap-1"><i data-lucide="gauge" class="w-4 h-4"></i> ${bike.vehicleMileage} km</span>
                                 <span class="flex items-center gap-1"><i data-lucide="user" class="w-4 h-4"></i> ${bike.vehicleOwnerType}</span>
+                                <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> ${bike.vehicleModelYear}</span>
                             </div>
                             <div class="flex items-center justify-between pt-6 border-t border-brand-primary/5">
                                 <div>

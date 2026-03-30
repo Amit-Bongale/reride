@@ -1,0 +1,66 @@
+/* Swiper Customization */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff;
+  background: rgba(10, 31, 88, 0.3);
+  backdrop-filter: blur(4px);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 18px;
+  font-weight: bold;
+}
+.mySwiper .swiper-slide {
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+  border: 2px solid #0a1f58;
+  border-radius: 12px;
+}
+
+/* Bento Grid Hover Effects */
+.bento-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(10, 31, 88, 0.15);
+}
+
+.mySwiper2 {
+  width: 100%;
+  height: 260px;
+}
+
+.mySwiper {
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+  padding: 8px 0;
+}
+
+@media (min-width: 640px) {
+  .mySwiper2 {
+    height: 360px;
+  }
+  .mySwiper {
+    height: 96px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mySwiper2 {
+    height: 440px;
+  }
+}
+
+.lg\:col-span-8 {
+  min-width: 0 !important;
+}
