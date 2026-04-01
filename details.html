@@ -12,13 +12,11 @@
 
     <link rel="stylesheet" href="./output.css" />
     <link rel="stylesheet" href="./css/style.css" />
-
     <link rel="stylesheet" href="./css/bikeDetails.css" />
 
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body class="antialiased">
-
     <nav
       id="navbar"
       class="fixed w-full top-0 z-50 transition-all duration-300 py-4"
@@ -280,6 +278,7 @@
               </button>
 
               <button
+                id="book-test-ride-btn"
                 class="w-full bg-white text-brand-primary border-2 border-brand-primary/10 text-lg font-bold py-4 rounded-2xl hover:bg-brand-bg transition-colors cursor-pointer"
               >
                 Book Test Ride
@@ -341,16 +340,6 @@
           </ul>
         </div>
 
-        <!-- <div>
-                <h4 class="text-white font-bold mb-4">Support</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Safety Tips</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                </ul>
-            </div> -->
-
         <div>
           <h4 class="text-white font-bold mb-4">Contact Us</h4>
           <p class="text-sm mb-2">Jalhalli, Bengaluru, KA 560057</p>
@@ -382,6 +371,112 @@
         >
       </div>
     </footer>
+
+    <div
+      id="test-ride-modal"
+      class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+    >
+      <div
+        class="bg-white rounded-3xl w-full max-w-md p-6 relative shadow-2xl overflow-y-auto max-h-[90vh]"
+      >
+        <button
+          id="close-modal-btn"
+          class="absolute top-4 right-4 text-brand-gray hover:text-brand-primary transition-colors cursor-pointer"
+        >
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <h3 class="text-2xl font-bold text-brand-primary mb-6">
+          Book a Test Ride
+        </h3>
+
+        <form id="testRideForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-brand-gray mb-1"
+              >Name *</label
+            >
+            <input
+              type="text"
+              id="trName"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-brand-primary/20 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-brand-gray mb-1"
+              >Mobile Number *</label
+            >
+            <input
+              type="tel"
+              id="trMobile"
+              pattern="[0-9]{10}"
+              title="Please enter a valid 10-digit mobile number"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-brand-primary/20 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-brand-gray mb-1"
+              >Email (Optional)</label
+            >
+            <input
+              type="email"
+              id="trEmail"
+              class="w-full px-4 py-3 rounded-xl border border-brand-primary/20 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+            />
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-brand-gray mb-1"
+                >Preferred Date *</label
+              >
+              <input
+                type="date"
+                id="trDate"
+                required
+                class="w-full px-4 py-3 rounded-xl border border-brand-primary/20 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-brand-gray"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-brand-gray mb-1"
+                >Time (9AM - 8PM) *</label
+              >
+              <input
+                type="time"
+                id="trTime"
+                min="09:00"
+                max="20:00"
+                required
+                class="w-full px-4 py-3 rounded-xl border border-brand-primary/20 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-brand-gray"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-brand-gray mb-1"
+              >Preferred Branch *</label
+            >
+            <select
+              id="select-location"
+              required
+              class="w-full text-black px-4 py-3 rounded-xl border border-brand-primary/20 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all "
+            >
+              <option value="" disabled selected>Select a branch</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-brand-primary text-white font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-brand-primary/20 hover:scale-[1.02] transition-all duration-300 mt-6 cursor-pointer"
+          >
+            Confirm Booking
+          </button>
+        </form>
+      </div>
+    </div>
 
     <script src="./js/nav.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

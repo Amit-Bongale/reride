@@ -38,9 +38,9 @@ async function fetchFeaturedBikes() {
                             <div class="flex items-center justify-between pt-6 border-t border-brand-primary/5">
                                 <div>
                                     <span class="block text-xs text-brand-gray uppercase font-semibold">Price</span>
-                                    <span class="text-2xl font-bold text-brand-primary">₹${Number(bike.vehicleOutLetPrice).toLocaleString()}</span>
+                                    <span class="text-xl font-bold text-brand-primary">₹${Number(bike.vehicleOutLetPrice).toLocaleString()}</span>
                                 </div>
-                                <a href="./details.html?id=${bike.vehicleId}" class="bg-brand-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-primary/90 transition-colors">
+                                <a href="./details.html?id=${bike.vehicleId}" class="bg-brand-primary text-sm md:text-md text-white px-4 py-2 md:px-6 md:py-3 rounded-xl md:font-bold hover:bg-brand-primary/90 transition-colors">
                                     View Details
                                 </a>
                             </div>
