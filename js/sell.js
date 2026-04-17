@@ -415,7 +415,7 @@ function initInspectionWatchers() {
 
   // Fetch actual branches from API if not already populated
   if (locInput.options.length <= 1) {
-    fetch("http://localhost:8080/branch/website/getBranches")
+    fetch("/api/branch/website/getBranches")
       .then((response) => response.json())
       .then((data) => {
         data.forEach((branch) => {
@@ -543,12 +543,13 @@ function submitForm() {
   );
 
   // Send request
-  fetch("http://localhost:8080/vehicle/addVehicle", {
+  fetch("/api/vehicle/addVehicle", {
     method: "POST",
     body: formPayload,
   })
     .then((res) => {
       if (!res.ok) {
+        alert("There was an error submitting your details. Please try again.");
         throw new Error("Error adding vehicle");
       }
 
@@ -578,7 +579,6 @@ function submitForm() {
     })
     .catch((error) => {
       console.log(error);
-      alert("There was an error submitting your details. Please try again.");
 
       // Reset UI on failure
       text.textContent = "Submit Details";

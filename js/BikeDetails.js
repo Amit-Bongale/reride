@@ -17,7 +17,7 @@ async function fetchVehicleDetails(id) {
   try {
     // Adjust this endpoint path based on your exact Spring Boot routing!
     const response = await fetch(
-      `http://localhost:8080/vehicle/website/getVehicle/${id}`,
+      `/api/vehicle/website/getVehicle/${id}`,
     );
 
     if (!response.ok) {
@@ -67,7 +67,7 @@ function populateDOM(vehicle) {
   thumbSliderWrapper.innerHTML = "";
 
   // *** IMPORTANT: Adjust this base URL to match where your backend serves images ***
-  const imageBaseUrl = "http://localhost:8080/uploads/";
+  const imageBaseUrl = "/api/uploads/";
 
   let imageArray = [];
 
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       try {
-        const response = await fetch("http://localhost:8080/testRide/bookTestRide", {
+        const response = await fetch("/api/testRide/bookTestRide", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Fetch branches from ReRide backend
 async function fetchBranches() {
   try {
-    const response = await fetch("http://localhost:8080/branch/website/getBranches");
+    const response = await fetch("/api/branch/website/getBranches");
     if (!response.ok) {
       throw new Error("Failed to fetch branches");
     }

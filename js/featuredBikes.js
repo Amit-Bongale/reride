@@ -1,6 +1,6 @@
 async function fetchFeaturedBikes() {
   const container = document.getElementById("featured-bikes-container");
-  const endpoint = "http://localhost:8080/vehicle/website/latest";
+  const endpoint = "/api/vehicle/website/latest";
 
   try {
     const response = await fetch(endpoint);
@@ -14,7 +14,7 @@ async function fetchFeaturedBikes() {
         // Parse the image string if it's a JSON array string
         const images = JSON.parse(bike.vehicleImage);
         const primaryImage =
-          `http://localhost:8080/uploads/${images[0]}` ||
+          `/api/uploads/${images[0]}` ||
           "placeholder-bike.jpg";
 
         return `
